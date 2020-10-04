@@ -1,0 +1,84 @@
+---
+title: "Will Toronto's Crime Rate Ever Decrease?"
+author: "Jin Long Cao"
+date: 2020-09-27
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+
+
+<p>Jin Long Cao</p>
+<div id="abstract" class="section level1">
+<h1>Abstract</h1>
+<p>Toronto is a highly populated location which means it’s crime rate will also be high. But will Toronto’s crime rate ever lower? In this paper we explore opendatatoronto’s dataset on “Neighbourhood Crime Rates”. We find that as Toronto’s population increase, the crime rate will increase with it.</p>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>There are 2,731,571 total people living in neighbourhoods around Toronto in 2019, with that total number increasing every year. We see that an increase in population will cause crime rate to increase as well, as a more populated neighbourhood would have a higher crime rate than a less populated neighbourhood. The data shows some neighbourhoods have decrease in specific crimes with , but all neighbourhoods have an increase in total crimes.</p>
+<p>The dataset focus on the following crimes: Assault, Auto Theft, Breaking and entering, Homicide and Robbery. In this report, we found that the most to least common crime is assault, breaking and entering, auto theft, robbery then homicide, respectively. With Assault making up 54.48% of the crimes and homicide with 0.21%. Some areas, having as little as 49 crimes and up to 1,380 crimes reported in 2019. From the data collected, it does not seem like Toronto’s Crime rate will decrease any time soon. With limited information collected about the neighbours, it is hard to tell why.</p>
+<p>This dataset tells us a lot about the crime rate around neighbourhoods. But it does not tell us much about the neighbourhood itself. As some areas might be more funded and have more community opportunities that cause illegal activities to be more scarce. If the dataset included employment, education, salaries and gender, it might help us explain why some neighbhourhoods have higher crime rate than others. There are a lot of future work that can be done on this dataset, there are a lot of uncertainty in the data for “Neighbourhood Crime Rate” in this year (2020). There can be a huge decrease in crime rate since everyone is quarantined because of Corona Virus and not many people are out. Or there can be an increase in breaking and entering since a lot of small buisnesses are closed for some time. And possible an increase in auto theft in open parking lots.</p>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>Opendatatoronto have datasets from Daily Shelter Occupancy to Neighbourhood Crime Rates. In this report, we will be focusing on neighbourhood crime rates. The neighbourhood crime rates dataset has data on the number of assaults, auto theft, breaking and entering, homicide and robbery crimes in each year from 2014 to 2019 for each neighbourhood around Toronto. They also provide the population of each neighbourhood, neighbourhood name, the average and the change in crime from 2018 to 2019 of each crime.</p>
+<p>The variables we will focus on are total crime in Toronto, how population relates to crime rate, change in each crime, change in total crime. We will see which crime increased the most and which crime decreased.</p>
+<pre><code>##   Assault_CHG       AutoTheft_CHG     BreakandEnter_CHG  Homicide_CHG     
+##  Min.   :-0.40000   Min.   :-0.6800   Min.   :-0.6000   Min.   :-1.00000  
+##  1st Qu.:-0.04000   1st Qu.:-0.1725   1st Qu.:-0.1550   1st Qu.:-0.50000  
+##  Median : 0.05000   Median : 0.0850   Median : 0.0850   Median : 0.00000  
+##  Mean   : 0.08707   Mean   : 0.2241   Mean   : 0.1501   Mean   : 0.07971  
+##  3rd Qu.: 0.19250   3rd Qu.: 0.4300   3rd Qu.: 0.3825   3rd Qu.: 0.00000  
+##  Max.   : 1.00000   Max.   : 3.1100   Max.   : 2.1300   Max.   : 3.00000  
+##   Robbery_CHG               geometry  
+##  Min.   :-0.8300   POLYGON      :140  
+##  1st Qu.:-0.2225   epsg:4326    :  0  
+##  Median :-0.0500   +proj=long...:  0  
+##  Mean   : 0.2852                      
+##  3rd Qu.: 0.4625                      
+##  Max.   :12.0000
+##    Crime_CHG               geometry  
+##  Min.   :  0.94   POLYGON      :140  
+##  1st Qu.: 11.86   epsg:4326    :  0  
+##  Median : 16.94   +proj=long...:  0  
+##  Mean   : 24.95                      
+##  3rd Qu.: 30.88                      
+##  Max.   :143.03
+##   Crime_Total              geometry  
+##  Min.   :  49.0   POLYGON      :140  
+##  1st Qu.: 124.8   epsg:4326    :  0  
+##  Median : 192.0   +proj=long...:  0  
+##  Mean   : 267.8                      
+##  3rd Qu.: 314.8                      
+##  Max.   :1380.0</code></pre>
+<p>As seen in the summary above, on average in each neighbourhood, all crimes increased. With homicidal crimes increasing the least and robbery increasing the most by 7.9% and 28.5%, respectively.</p>
+<p>Even though robbery crimes increased the most in 2019, robbery is still the second least committed crime in this survey.The most common crime will be assault, with breaking and entering following it then auto theft. As shown below,
+<img src="/post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The reason why on average all the crime rates increased is because of the population of Toronto increasing. Total crime committed is dependent on population. As seen in the linear regression model, the greater the population in each neighbourhood, the more likely a crime is going to be committed in that neighbourhood.</p>
+<p><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-5-2.png" width="672" /><img src="/post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>From the data, we can tell that as the population increase, same will the crime rate. But this is normal. It does not mean that Toronto will become one the most dangerous place in the world, even though some neighbourhoods have upto 1200% increase in robbery. There are still a lot of other neighbourhoods that have a decrease in crimes, with some neighbourhoods having upto,</p>
+<p>40% decrease in assault crimes,</p>
+<p>63% decrease in auto theft crimes,</p>
+<p>60% decrease in breaking and entering crimes,</p>
+<p>100% decrease in homocide crimes,</p>
+<p>83% decrease in robbery crimes.</p>
+<p>Some neighbourhoods in Toronto has a very high increase in crime rates (i.e. outliers) where majority of the crime rates in Toronto is increasing slowly (which is normal because of the increase in population). These outliers, pull the average crime rate up. This is why the median is a better determination of how Toronto’s crime rate. The median is only 67.89% of the average change in crime.</p>
+<div id="weaknesses-and-next-steps" class="section level2">
+<h2>Weaknesses and next steps</h2>
+<p>This dataset is can limiting since it does not tell us much about the neighbourhood itself. As some areas might be more funded and have better educational opportunities that cause an higher employment rate or better quality career.The dataset should included employment, education, salaries and gender, it might help us explain why some neighbhourhoods have higher crime rate than others. The next step is to analysis the “neighbourhood crime rate” for the year 2020. As a lot of life changing events happen this year. It can possible cause a huge decrease in crime.</p>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<ul>
+<li>Sharla Gelfand (2020). opendatatoronto: Access the City of Toronto Open Data Portal. <a href="https://sharlagelfand.github.io/opendatatoronto/" class="uri">https://sharlagelfand.github.io/opendatatoronto/</a>, <a href="https://github.com/sharlagelfand/opendatatoronto/" class="uri">https://github.com/sharlagelfand/opendatatoronto/</a>.</li>
+<li>Paul A. Hodgetts and Rohan Alexander (2020). cesR: Access the CES Datasets a Little Easier.. R package version 0.1.0.</li>
+<li>R Core Team (2019). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</li>
+<li>Hadley Wickham, Jim Hester and Winston Chang (2020). devtools: Tools to Make Developing R Packages Easier. R package version 2.3.2. <a href="https://CRAN.R-project.org/package=devtools" class="uri">https://CRAN.R-project.org/package=devtools</a></li>
+<li>R Core Team (2020). R: A language and environment for statistical computing. R, Foundation for Statistical Computing, Vienna, Austria. URL, <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</li>
+<li>JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone (2020). rmarkdown: Dynamic Documents for R. R package version 2.3. URL <a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a>.</li>
+</ul>
+</div>
