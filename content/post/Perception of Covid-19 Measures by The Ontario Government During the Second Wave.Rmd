@@ -1,9 +1,9 @@
 ---
-title: Perception of Covid-19 Measures by The Ontario Government During the Second
-  Wave
+title: "Perception of Covid-19 Measures by The Ontario Government During the Second Wave"
 author: "Jin Long Cao"
-date: "10/3/2020"
-output: html_document
+date: 2020-10-7
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
 ---
 
 ```{r setup, include=FALSE}
