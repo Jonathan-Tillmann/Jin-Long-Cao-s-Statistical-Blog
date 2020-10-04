@@ -8,24 +8,52 @@ tags: ["R Markdown", "plot", "regression"]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#install.packages('tidyverse')
+library(tidyverse)
 ```
 
-## R Markdown
+# Executive summary
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Petit Poll has been asked by the Rohan and Sam Party ('the Party') to survey British Columbia to understand whether people are likely to vote for the Party in the upcoming general election. We surveyed....
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# Introduction
 
-```{r cars}
-summary(cars)
-```
 
-## Including Plots
+# Survey methodology 
 
-You can also embed plots, for example:
+- What is the population frame and sample
+- What sampling methods will you use and why e.g. you could choose SRSWOR stratified etc. What are some of the statistical properties that the method brings to the table e.g. for SRSWOR you could discuss Wu Thompson Theorem 2.2. etc as appropriate
+- How are you going to reach your desired respondents
+- How much do you estimate this will cost
+- What steps will you take to deal with non-response and how will non-response affect your survey
+- How are you going to protect respondent privacy
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+and more...
+
+
+# Results
+
+# Discussion 
+
+## Survey
+
+## Results
+
+## Weakness and areas for future
+
+
+# Appendix
+
+## Survey
+
+Add a link to the survey and screen shots of the questions.
+
+
+# References
+
+- Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
+  Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+- R Core Team (2020). R: A language and environment for statistical
+  computing. R Foundation for Statistical Computing, Vienna, Austria.
+  URL https://www.R-project.org/.
