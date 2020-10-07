@@ -1,7 +1,7 @@
 ---
 title: "Perception of Covid-19 Measures by The Ontario Government During the Second Wave"
 author: "Jin Long Cao, Brian Diep, Johnathan Tillman, Tanya Woloshansky"
-date: 2020-10-02
+date: 2020-10-07
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
@@ -37,49 +37,52 @@ and more...
 #We can always change the prob to fit our report
 set.seed(666)
 my_data <- tibble(
-  Age  = sample(x = c("18-24", "25-34", "35-44", "45-54", "50-64", "65-74", "75-100"), size = 15000, replace = TRUE, prob = c(0.2, 0.225, 0.20, 0.15, .1, 0.075, 0.05)),
+  Age  = sample(x = c("18-24", "25-34", "35-44", "45-54", "50-64", "65-74", "75-100"), size = 15987, replace = TRUE, prob = c(0.2, 0.225, 0.15, 0.20, .105, 0.07, 0.05)),
   
-  Vulnerable_Population = sample(x = c("Yes", "No", "Not sure"), size = 15000, replace = TRUE, prob = c(0.2, 0.7, 0.1)),
+  Vulnerable_Population = sample(x = c("Yes", "No", "Not sure"), size = 15987, replace = TRUE, prob = c(0.2, 0.7, 0.1)),
   
   #Do you live in one of the following administrative/metropolitan regions
-  Living = sample(x = c("Yes", "No"),  size = 15000, replace = TRUE, prob = c(0.8, 0.2)),
+  Living = sample(x = c("Yes", "No"),  size = 15987, replace = TRUE, prob = c(0.8, 0.2)),
   
   Political_Party = sample(x = c("Progressive Conservative Party of Ontario",
                                  "Ontario Liberal Party",
                                  "Ontario New Democratic Party",
                                  "Green Party of Ontario",
                                  "No political affiliation", "Other"),
-                           size = 15000, replace = TRUE, 
+                           size = 15987, replace = TRUE, 
                            prob = c(0.2, 0.2, 0.2, 0.2, 0.1, 0.1)),
   
-  Primary_Source = sample(x = c("Social Media", "Television", "Personal Research on the Internet", "Newspaper", "Family and Friends", "Other"), size = 15000, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
+  Primary_Source = sample(x = c("Social Media", "Television", "Personal Research on the Internet", "Newspaper", "Family and Friends", "Other"), size = 15987, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
   
-  Knowledgeable = sample(c(1:5), size = 15000, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
+  Knowledgeable = sample(c(1:5), size = 15987, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
   
-  Mask_Frequency = sample(x = c("Always", "Most of the time", "Sometimes", "Rarely", "Never"), size = 15000, replace = TRUE, prob = c(0.25, 0.3, 0.2, 0.15, 0.1)),
+  Mask_Frequency = sample(x = c("Always", "Most of the time", "Sometimes", "Rarely", "Never"), size = 15987, replace = TRUE, prob = c(0.25, 0.3, 0.2, 0.15, 0.1)),
   
-  Mask_Type = sample(x = c("Surgical Mask", "N95 Mask", "Cloth Mask", "Other"), size = 15000, replace = TRUE, prob = c(0.35, 0.25, 0.3, 0.1)),
+  Mask_Type = sample(x = c("Surgical Mask", "N95 Mask", "Cloth Mask", "Other"), size = 15987, replace = TRUE, prob = c(0.35, 0.25, 0.3, 0.1)),
   
-  Social_Bubble = rpois(15000, 10),
+  Social_Bubble = rpois(15987, 10),
   
   Follow_Regulation = sample(x = c("Yes, I follow all store requirements",
                                    "Mostly",
                                    "Only ones I think will be enforced",
                                    "None"),
-                             size = 15000, replace = TRUE, 
+                             size = 15987, replace = TRUE, 
                            prob = c(0.25, 0.25, 0.25, 0.25)),
-  Visit_non_essentials = rpois(15000, 3),
+  Visit_non_essentials = rpois(15987, 3),
   
-  Travel_Within_Canada = sample(x = c("Yes", "No"), size = 15000, replace = TRUE, prob = c(0.7066, 0.2934)), 
+  Travel_Within_Canada = sample(x = c("Yes", "No"), size = 15987, replace = TRUE, prob = c(0.7066, 0.2934)), 
   
-  Travel_Out_Of_Canada = sample(x = c("Yes", "No"), size = 15000, replace = TRUE, prob = c(0.98743, 0.01257))
+  Travel_Out_Of_Canada = sample(x = c("Yes", "No"), size = 15987, replace = TRUE, prob = c(0.98743, 0.01257)),
   
+  Lockdown = sample(x = c("Strongly agree", "Slightly agree", "Neutral", "Slightly disagree", "Strongly disagree"), size = 15987, replace = TRUE, prob = c(0.20, 0.20, 0.2, 0.2, 0.2)),
+  
+  Travel_Border_Restriction = sample(x = c("Yes", "No"), size = 15987, replace = TRUE, prob = c(0.98743, 0.01257))
   
 )
 
 my_data %>% 
-  ggplot(aes(x = Visit_non_essentials)) +
-  geom_histogram()
+  ggplot(aes(x = Travel_Within_Canada)) +
+  geom_bar()
 
 my_data %>% 
   ggplot(aes(x=Age))+
