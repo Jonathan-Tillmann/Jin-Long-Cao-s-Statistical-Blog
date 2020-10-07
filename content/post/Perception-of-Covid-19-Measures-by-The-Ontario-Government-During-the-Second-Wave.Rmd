@@ -53,7 +53,7 @@ my_data <- tibble(
                            prob = c(0.4, 0.20, 0.105, 0.15, 0.1, 0.05)),
 
   Primary_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = 15987, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
-  
+
   Trustworthy_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = 15987, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
   
   Knowledgeable = sample(c(1:5), size = 15987, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
@@ -103,7 +103,6 @@ my_data %>%
        y = "Frequency",
        title = "Figure 2: Distribution of Political Parties People Idenify With") +
   theme_bw()
-
 
 my_data %>% 
   ggplot(aes(x = Travel_Within_Canada)) +
