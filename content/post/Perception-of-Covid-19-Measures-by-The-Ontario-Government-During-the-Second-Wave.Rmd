@@ -8,7 +8,6 @@ tags: ["R Markdown", "plot", "regression"]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-#install.packages('tidyverse')
 library(tidyverse)
 ```
 
@@ -30,10 +29,10 @@ The survey cost roughly $60 000 to provide based on the average of $40 per respo
 
 ## Part III. Survey
 
-The questions found in the survey can be found below. The survey can be accessed at the following link: [link here]. 
-Add a link to the survey and screen shots of the questions.
+The questions found in the survey can be found in the appendix below. The survey can be accessed at the following link: https://docs.google.com/forms/d/e/1FAIpQLSdTGAjWKZ4oBDcpyopp-0p1tGgKqgIXzkcm6bMw8Yoe8IBkyQ/viewform?usp=sf_link 
 
-```{r, echo=FALSE, warning=FALSE}
+
+```{r simulate_data, echo=FALSE, warning=FALSE}
 #Simulating data
 #We can always change the prob to fit our report
 set.seed(666)
@@ -230,6 +229,7 @@ my_data %>%
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
 ```
+
 For this question, respondents were asked to self-report their knowledgeability of COVID-19 information. 1 was considered to be least knowledgeable and 5 was considered most knowledgeable.
 
 ```{r conservative, echo=FALSE}
@@ -259,22 +259,97 @@ my_data %>%
                                 size = 0.5, linetype = "solid"))
 
 ```
+
 Figures 2.3 and 2.4 polled respondents on their views towards the Ontario Progressive Conservative Party and Doug Ford in relation to handling COVID-19. In both cases, a majority of respondents had trust in the party's leadership during the pandemic.
+
+# IV.c.
 
 ## Part V. Discussion
 This suggests that government resources should be directed towards X, Y, Z in order to educate and improve. Overall, the 
 
 ## Part VI. Weaknesses and Next Steps
-    One major weakness of our survey is the potential for self-reporting bias. Respondents are more 
-Conducting our survey through residential phones introduced non-response bias in which the younger age brackets were not accurately represented. Individuals belonging to the younger age brackets are more likely to reside in households such that elders respond to their landline or live alone without a landline.
-Furthermore, as this poll is being conducted on behalf of the Progressive Conservative Party of Ontario, we are much more likely to receive responses from those who are affiliated with the party. This may further skew our survey results to include data points from those typically associated with the voter demographics.
-    Finally, the subject matter of the survey may lead to a response bias towards those who are directly affected by COVID-19, either being a member of or close to a member of a vulnerable population.
 
-
-
-
+  One major weakness of our survey is the potential for self-reporting bias. Respondents are more likely to offer responses that they view would portray them in a better light. A specific question that may have inflated responses is how respondents view their own knowledge on COVID-19. 
+  
+  Conducting our survey through residential phones may also have introduced non-response bias in which the younger age brackets were not accurately represented. Individuals belonging to the younger age brackets are more likely to reside in households such that elders respond to their landline or live alone without a landline.
+  
+  Furthermore, as this poll is being conducted on behalf of the Progressive Conservative Party of Ontario, we are much more likely to receive responses from those who are affiliated with the party. This may further skew our survey results to include data points from those typically associated with the voter demographics.
+  
+  Additionally, the subject matter of the survey may lead to a response bias towards those who are directly affected by COVID-19, either being a member of or close to a member of a vulnerable population. These results gathered from this subset of the population are likely to show they are informed of COVID-19 and the best practices surrounding it.
+  
+  Future studies conducted based on our simulated data should be concentrated on the younger age bracket respondents. Specifically, more insight into the types of social media used by the younger age brackets would provide the Conservative Party of Ontario avenues to target the demographic with policy information not limited to COVID-19. A follow up survey could also have Ontarians aged 18-34 as the sampling frame and ask questions regarding the specific social media platforms they use and the average time spent browsing each in a day. 
 
 ## Appendix
+
+The screenshots of the survey given to respondents can be found below.
+```{r examplelabel, fig.cap = "COVID-19 Survey.", include = TRUE, echo = FALSE}
+knitr::include_graphics("Surveyquestions1.png")
+knitr::include_graphics("Surveyquestions2.png")
+knitr::include_graphics("Surveyquestions3.png")
+knitr::include_graphics("Surveyquestions4.png")
+knitr::include_graphics("Surveyquestions5.png")
+knitr::include_graphics("Surveyquestions6.png")
+knitr::include_graphics("Surveyquestions7.png")
+```
+
+The code below was used to simulate the data.
+
+```{r simulate_data_appendix, echo=TRUE, eval=FALSE, warning=FALSE}
+#Simulating data
+#We can always change the prob to fit our report
+set.seed(666)
+
+# Number of respondents to our survey
+sample_size = 1598
+
+#What is your age?
+my_data <- tibble(
+  Age  = sample(x = c("18-24", "25-34", "35-44", "45-54", "50-64", "65-74", "75-100"), size = sample_size, replace = TRUE, prob = c(0.1, 0.159, 0.25, 0.22, .2, 0.1, 0.05)),
+  
+#Are you a member of a vulnerable population?
+  Vulnerable_Population = sample(x = c("Yes", "No", "Not sure"), size = sample_size, replace = TRUE, prob = c(0.2, 0.7, 0.1)),
+  
+  #Do you live in one of the following administrative/metropolitan regions
+  Living = sample(x = c("Yes", "No"),  size = sample_size, replace = TRUE, prob = c(0.8, 0.2)),
+  
+  Political_Party = sample(x = c("Conservative Party",
+                                 "Liberal Party",
+                                 "New Democratic",
+                                 "Green Party",
+                                 "No affiliation", "Other"),
+                           size = sample_size, replace = TRUE, 
+                           prob = c(0.4, 0.20, 0.105, 0.15, 0.1, 0.05)),
+
+  Primary_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
+
+  Trustworthy_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
+  
+  Knowledgeable = sample(c(1:5), size = sample_size, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
+  
+  Trust_Conservative_Party = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.6, 0.3, 0.1)),
+  
+  Trust_Doug_Ford = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.5, 0.4, 0.1)),
+  
+  Mask_Frequency = sample(x = c("Always", "Most of the time", "Sometimes", "Rarely", "Never"), size = sample_size, replace = TRUE, prob = c(0.25, 0.3, 0.2, 0.15, 0.1)),
+  
+  Social_Bubble = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.7066, 0.2934)),
+  
+  Follow_Regulation = sample(x = c("Yes, I follow all store requirements",
+                                   "Mostly",
+                                   "Only ones I think will be enforced",
+                                   "None"),
+                             size = sample_size, replace = TRUE, 
+                           prob = c(0.25, 0.25, 0.25, 0.25)),
+  
+  Visit_non_essentials = rpois(sample_size, 3),
+  
+  Travel_Within_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.8674, 0.1326)), 
+  
+  Travel_Out_Of_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.98743, 0.01257))
+)
+```
+
+The code below was used to create all of the graphs used in this report.
 
 *The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at this link [here]*
 
