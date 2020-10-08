@@ -23,7 +23,7 @@ The COVID-19 pandemic is one of the most significant challenges that Ontarians a
 
 ## Part II. Survey methodology 
 
-The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit ‘5’. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
+The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit '5'. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
 A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (Changbao and Thomspon, 2020).
 In the end we received a response from roughly Y% of households surveyed which resulted in  roughly 1 500 data points. 
 The survey cost roughly \$60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
@@ -367,13 +367,34 @@ As for specific policies
 ## Appendix
 
 The screenshots of the survey given to respondents can be found below.
-```{r examplelabel, fig.cap = "COVID-19 Survey.", include = TRUE, echo = FALSE}
+
+```{r q1, include = TRUE, echo = FALSE}
 knitr::include_graphics("Surveyquestions1.png")
+```
+
+```{r q2, echo=FALSE}
 knitr::include_graphics("Surveyquestions2.png")
+```
+
+```{r q3, echo=FALSE}
 knitr::include_graphics("Surveyquestions3.png")
+```
+
+```{r q4, echo=FALSE}
 knitr::include_graphics("Surveyquestions4.png")
+
+```
+
+```{r q5, echo=FALSE}
 knitr::include_graphics("Surveyquestions5.png")
+
+```
+
+```{r q6, echo=FALSE}
 knitr::include_graphics("Surveyquestions6.png")
+```
+
+```{r q7, echo=FALSE}
 knitr::include_graphics("Surveyquestions7.png")
 ```
 
@@ -448,20 +469,201 @@ The code below was used to create all of the graphs used in this report.
 
 ```{r all_the_graphs, echo=TRUE, eval=FALSE}
 
+#Graphs
+
+#Distribution of Respondent Age Graph
+my_data %>% 
+  ggplot(aes(x = Age)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Ages",
+       y = "Frequency",
+       title = "Figure 1.1: Distribution of Respondent Age") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Distribution of Vulnerable Populations
+my_data %>% 
+  ggplot(aes(x = Vulnerable_Population)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 1.2: Responses to 'Are you a member of a COVID-vulnerable group?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Distribution of Living in COVID Hotspots
+my_data %>% 
+  ggplot(aes(x = Living)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 1.3: Responses to 'Do you live in a COVID hotspot?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+# Colour palette
+
+partyPalette <- c("#0000CC", "#00FF33", "#CC0000", "#FF6600", "#666666", "#CCCCCC")
+
+#Distribution of Political Affiliation
+my_data %>% 
+  ggplot(aes(x = Political_Party)) +
+  geom_bar(colour ="black", fill=partyPalette) +
+  labs(x = "Respondent Political Party Affiliations",
+       y = "Frequency",
+       title = "Figure 1.4: Distribution of Respondent Political Affiliation") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+# Colour palette
+
+cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00")
+
+#Distribution of Primary Sources
+my_data %>% 
+  ggplot(aes(x = Primary_Source)) +
+  geom_bar(colour ="black", fill=cbPalette) +
+  labs(x = "Primary Information Source",
+       y = "Frequency",
+       title = "Figure 2.1 Primary Source for COVID-19 Information") +
+  theme(axis.text.x=element_text(angle=90), 
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+
+#Distribution of Most Trusted source
+my_data %>% 
+  ggplot(aes(x = Trustworthy_Source)) +
+  geom_bar(colour ="black", fill=cbPalette) +
+  labs(x = "Most Trusted Information Source",
+       y = "Frequency",
+       title = "Figure 2.2 Most Trusted Source for COVID-19 Information") +
+  theme(axis.text.x=element_text(angle=90), 
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Distribution of Confidence
+my_data %>% 
+  ggplot(aes(x = Knowledgeable)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Confidence",
+       y = "Frequency",
+       title = "Figure 2.3: Respondent Knowledgeability Levels in COVID-19 Awareness") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Trust in Conservative Party
+my_data %>% 
+  ggplot(aes(x = Trust_Conservative_Party)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 2.4: 'Do you trust the OPC to handle the COVID-19 response?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Trust in Doug Ford
+my_data %>% 
+  ggplot(aes(x = Trust_Doug_Ford)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 2.5: Do you trust Doug Ford to handle the COVID-19 response?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Mask adherance rate
+my_data %>% 
+  ggplot(aes(x = Mask_Frequency)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.1: 'How often do you wear a mask?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Social bubble adherence
+my_data %>% 
+  ggplot(aes(x = Social_Bubble)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.2: 'Do you adhere to a social bubble/circle?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Private establishment rule adherence
+my_data %>% 
+  ggplot(aes(x = Follow_Regulation)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.3: 'Do you adhere to all social-distancing/hygiene rules when visiting private establishments?'") +
+  theme(axis.text.x=element_text(angle=90), panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Social bubble adherence
+my_data %>% 
+  ggplot(aes(x = Visit_non_essentials)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.4: Frequency of Participation in Non-Essential Activities") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Travel within Canada
+
+my_data %>% 
+  ggplot(aes(x = Travel_Within_Canada)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.5: 'Have you travelled within Canada within the past 6 months?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+#Travel outside of Canada
+
+my_data %>% 
+  ggplot(aes(x = Travel_Out_Of_Canada)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.6: 'Have you travelled outside of Canada in the past 6 months?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+
 ```
 
 
-*The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at the following link: https://github.com/JinLong-Cao/Jin-Long-Cao-s-Statistical-Blog/tree/master/content/post*
+*The code and simulated data used in this report's analysis can also be found at the GitHub tab linked on the blog header as well as at the following link: https://github.com/JinLong-Cao/Jin-Long-Cao-s-Statistical-Blog/tree/master/content/post*
 
 ## References
 
--Government of Canada, 2020. “People who are at high risk for severe illness from COVID-19.” Retrieved from: https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html
+-Government of Canada, 2020. "People who are at high risk for severe illness from COVID-19." Retrieved from: https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html
 
-- Lee, Mie-Yun (2002). “Conducting Surveys and Focus Groups.” Entrepreneur. Retried from: www.entrepreneur.com/article/55680. 
+- Lee, Mie-Yun (2002). "Conducting Surveys and Focus Groups." Entrepreneur. Retried from: www.entrepreneur.com/article/55680. 
 
-- Mae Jones, Alexandra (2020). “Mapping out Canada's COVID-19 hotspots: new modelling shows   where cases are rising.” CTV News. Bell Media. Retrieved from:                             https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985
+- Mae Jones, Alexandra (2020). "Mapping out Canada's COVID-19 hotspots: new modelling shows   where cases are rising." CTV News. Bell Media. Retrieved from:                             https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985
 
-- Ministry of Health Ontario. 2020. “Creating a social circle during COVID-19” Retrieved     from: https://www.ontario.ca/page/create-social-circle-during-covid-19
+- Ministry of Health Ontario. 2020. "Creating a social circle during COVID-19" Retrieved     from: https://www.ontario.ca/page/create-social-circle-during-covid-19
 - R Core Team (2020). R: A language and environment for statistical
   computing. R Foundation for Statistical Computing, Vienna, Austria.
   URL https://www.R-project.org/.
