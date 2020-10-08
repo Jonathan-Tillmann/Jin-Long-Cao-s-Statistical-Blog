@@ -13,7 +13,8 @@ library(tidyverse)
 
 ## Executive summary
 
-Petit Poll has been asked by the Rohan and Sam Party ('the Party') to survey British Columbia to understand whether people are likely to vote for the Party in the upcoming general election. We surveyed....
+Petit Poll was asked by the Conservative Party of Ontario to survey the Ontario public in regards to the current COVID-19 pandemic to better understand whether people are likely to vote for the Party in the upcoming general election. We conducted a mock survey based on simulated respondent parameters to give a cursory look into the broader trends in public health awareness regarding COVID-19. In summary, we find that government strategy should be to . Since our survey included questions relying on respondents to report their personal habits and knowledge regarding COVID-19, we believe these responses could be embellished to view the respondent in a more favourable light. The survey also underrepresents the younger voters of Ontario and has a majority response from Conservative voters and those greatly impacted by COVID-19 policies. Future studies should target the young voters and of particular concern are their social media habits. These studies would enable our employer to target them with information on party policies to positively impact their view of the Conservative Party.
+
 
 ## Part I. Introduction
 
@@ -23,9 +24,9 @@ The COVID-19 pandemic is one of the most significant challenges that Ontarians a
 ## Part II. Survey methodology 
 
 The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit ‘5’. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
-A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (cite textbook here).
+A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (Changbao and Thomspon, 2020).
 In the end we received a response from roughly Y% of households surveyed which resulted in  roughly 1 500 data points. 
-The survey cost roughly $60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
+The survey cost roughly \$60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
 
 ## Part III. Survey
 
@@ -50,6 +51,7 @@ my_data <- tibble(
   #Do you live in one of the following administrative/metropolitan regions
   Living = sample(x = c("Yes", "No"),  size = sample_size, replace = TRUE, prob = c(0.8, 0.2)),
   
+#What is your political affiliation?
   Political_Party = sample(x = c("Conservative Party",
                                  "Liberal Party",
                                  "New Democratic",
@@ -58,20 +60,28 @@ my_data <- tibble(
                            size = sample_size, replace = TRUE, 
                            prob = c(0.4, 0.20, 0.105, 0.15, 0.1, 0.05)),
 
+#What is your primary source of media?"
   Primary_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
 
+#Which source do you consider most trustworthy?"
   Trustworthy_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
-  
+
+#On a scale from 1 to 5, how knowledgeable do you think you are about COVID-19?
   Knowledgeable = sample(c(1:5), size = sample_size, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
   
+#Do you trust the Conservative Party to handle the response?
   Trust_Conservative_Party = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.6, 0.3, 0.1)),
   
+#Do you trust Doug Ford to handle the response?
   Trust_Doug_Ford = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.5, 0.4, 0.1)),
   
+#How often do you wear a mask?
   Mask_Frequency = sample(x = c("Always", "Most of the time", "Sometimes", "Rarely", "Never"), size = sample_size, replace = TRUE, prob = c(0.25, 0.3, 0.2, 0.15, 0.1)),
   
+#Do you stick to a social bubble?
   Social_Bubble = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.7066, 0.2934)),
   
+#Do you follow regulations at private establishments?
   Follow_Regulation = sample(x = c("Yes, I follow all store requirements",
                                    "Mostly",
                                    "Only ones I think will be enforced",
@@ -81,27 +91,13 @@ my_data <- tibble(
   
   Visit_non_essentials = rpois(sample_size, 3),
   
-  Travel_Within_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.8674, 0.1326)), 
+#Have you traveled within Canada?
+  Travel_Within_Canada = sample(x = c("No", "Yes"), size = sample_size, replace = TRUE, prob = c(0.8674, 0.1326)), 
   
-  Travel_Out_Of_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.98743, 0.01257))
+#Have you traveled outside of Canada?
+  Travel_Out_Of_Canada = sample(x = c("No", "Yes"), size = sample_size, replace = TRUE, prob = c(0.98743, 0.01257))
 )
 ```
-
-Add a link to the survey and screen shots of the questions.
-
-```{r, echo=FALSE, warning=FALSE}
-
-
-my_data %>% 
-  ggplot(aes(x = Travel_Within_Canada)) +
-  geom_bar()
-
-my_data %>% 
-  ggplot(aes(x=Age))+
-  geom_bar()
-
-```
-
 
 ## Part IV. Simulated Survey Results
 For the purposes of this report, our dataset was simulated through some assumptions made about the population frame. For example, age demographics were sourced from Statistics Canada and adjusted for non-response bias to provide an accurate representation of the potential survey respondents.
@@ -139,7 +135,7 @@ my_data %>%
 
 ```
 
-For the purposes of this question, participants were told that vulnerable groups included (but were not limited to) those over the age of 60, obese individuals, and those with pre-existing health conditions like respiratory infections, any type of cancer, and neurological conditions like dementia (cite this! https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html).
+For the purposes of this question, participants were told that vulnerable groups included (but were not limited to) those over the age of 60, obese individuals, and those with pre-existing health conditions like respiratory infections, any type of cancer, and neurological conditions like dementia (Government of Canada, 2020).
 
 ```{r living_graph, echo=FALSE}
 
@@ -294,7 +290,7 @@ my_data %>%
 ```
 
 
-For the purposes of this question, a social bubble/circle is defined as a group of no more than 10 people (including household members) who can interact with each other without following social distancing protocols (cite this! https://www.ontario.ca/page/create-social-circle-during-covid-19).
+For the purposes of this question, a social bubble/circle is defined as a group of no more than 10 people (including household members) who can interact with each other without following social distancing protocols (Ministry of Health Ontario, 2020).
 
 ```{r follow_rules, echo=FALSE, fig.height = 6}
 #Private establishment rule adherence
@@ -312,11 +308,11 @@ my_data %>%
 ```{r non-essential, echo=FALSE}
 #Social bubble adherence
 my_data %>% 
-  ggplot(aes(x = Social_Bubble)) +
+  ggplot(aes(x = Visit_non_essentials)) +
   geom_bar(colour ="black", fill="steelblue") +
   labs(x = "Response",
        y = "Frequency",
-       title = "Figure 3.4: 'How often do you'") +
+       title = "Figure 3.4: Frequency of Participation in Non-Essential Activities") +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
@@ -326,12 +322,35 @@ my_data %>%
 ```{r travel_Canada, echo=FALSE}
 #Travel within Canada
 
+my_data %>% 
+  ggplot(aes(x = Travel_Within_Canada)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.5: 'Have you travelled within Canada within the past 6 months?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
 
+```{r travel_out_Canada, echo=FALSE}
+#Travel outside of Canada
 
+my_data %>% 
+  ggplot(aes(x = Travel_Out_Of_Canada)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.6: 'Have you travelled outside of Canada in the past 6 months?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
 ```
 
 ## Part V. Discussion
-This suggests that government resources should be directed towards X, Y, Z in order to educate and improve. Overall, the 
+This suggests that government resources should be directed towards X, Y, Z in order to educate and improve. Overall, the.
+
+As for specific policies
 
 ## Part VI. Weaknesses and Next Steps
 
@@ -378,6 +397,7 @@ my_data <- tibble(
   #Do you live in one of the following administrative/metropolitan regions
   Living = sample(x = c("Yes", "No"),  size = sample_size, replace = TRUE, prob = c(0.8, 0.2)),
   
+#What is your political affiliation?
   Political_Party = sample(x = c("Conservative Party",
                                  "Liberal Party",
                                  "New Democratic",
@@ -386,20 +406,28 @@ my_data <- tibble(
                            size = sample_size, replace = TRUE, 
                            prob = c(0.4, 0.20, 0.105, 0.15, 0.1, 0.05)),
 
+#What is your primary source of media?"
   Primary_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
 
+#Which source do you consider most trustworthy?"
   Trustworthy_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
-  
+
+#On a scale from 1 to 5, how knowledgeable do you think you are about COVID-19?
   Knowledgeable = sample(c(1:5), size = sample_size, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
   
+#Do you trust the Conservative Party to handle the response?
   Trust_Conservative_Party = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.6, 0.3, 0.1)),
   
+#Do you trust Doug Ford to handle the response?
   Trust_Doug_Ford = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.5, 0.4, 0.1)),
   
+#How often do you wear a mask?
   Mask_Frequency = sample(x = c("Always", "Most of the time", "Sometimes", "Rarely", "Never"), size = sample_size, replace = TRUE, prob = c(0.25, 0.3, 0.2, 0.15, 0.1)),
   
+#Do you stick to a social bubble?
   Social_Bubble = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.7066, 0.2934)),
   
+#Do you follow regulations at private establishments?
   Follow_Regulation = sample(x = c("Yes, I follow all store requirements",
                                    "Mostly",
                                    "Only ones I think will be enforced",
@@ -409,22 +437,37 @@ my_data <- tibble(
   
   Visit_non_essentials = rpois(sample_size, 3),
   
-  Travel_Within_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.8674, 0.1326)), 
+#Have you traveled within Canada?
+  Travel_Within_Canada = sample(x = c("No", "Yes"), size = sample_size, replace = TRUE, prob = c(0.8674, 0.1326)), 
   
-  Travel_Out_Of_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.98743, 0.01257))
+#Have you traveled outside of Canada?
+  Travel_Out_Of_Canada = sample(x = c("No", "Yes"), size = sample_size, replace = TRUE, prob = c(0.98743, 0.01257))
 )
 ```
 
 The code below was used to create all of the graphs used in this report.
 
+```{r all_the_graphs, echo=TRUE, eval=FALSE}
+
+```
+
+
 *The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at the following link: https://github.com/JinLong-Cao/Jin-Long-Cao-s-Statistical-Blog/tree/master/content/post*
 
 ## References
 
+-Government of Canada, 2020. “People who are at high risk for severe illness from COVID-19.” Retrieved from: https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html
+
+- Lee, Mie-Yun (2002). “Conducting Surveys and Focus Groups.” Entrepreneur. Retried from: www.entrepreneur.com/article/55680. 
+
+- Mae Jones, Alexandra (2020). “Mapping out Canada's COVID-19 hotspots: new modelling shows   where cases are rising.” CTV News. Bell Media. Retrieved from:                             https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985
+
+- Ministry of Health Ontario. 2020. “Creating a social circle during COVID-19” Retrieved     from: https://www.ontario.ca/page/create-social-circle-during-covid-19
 - R Core Team (2020). R: A language and environment for statistical
   computing. R Foundation for Statistical Computing, Vienna, Austria.
   URL https://www.R-project.org/.
 - Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
+- Wu, Changbao and Mary E. Thompson. 2020. Sampling Theory and Practice, Springer.
   Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
 - Yihui Xie (2020). blogdown: Create Blogs and Websites with R Markdown. R
   package version 0.20.
