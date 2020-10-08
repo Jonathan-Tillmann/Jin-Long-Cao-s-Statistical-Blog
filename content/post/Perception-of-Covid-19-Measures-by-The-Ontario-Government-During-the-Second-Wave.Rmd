@@ -148,7 +148,7 @@ For the purposes of this question, participants were told that vulnerable groups
 my_data %>% 
   ggplot(aes(x = Living)) +
   geom_bar(colour ="black", fill="steelblue") +
-  labs(x = "Ages",
+  labs(x = "Response",
        y = "Frequency",
        title = "Figure 1.3: Responses to 'Do you live in a COVID hotspot?'") +
   theme(panel.background = element_rect(fill = "lightblue",
@@ -175,11 +175,94 @@ my_data %>%
                                 size = 0.5, linetype = "solid"))
 ```
 
-Looking at our demographic data, we see that the majority of respondents were in the 35-44 category with the distribution of respondent ages skewing older. We also find that a large majority (79.5%) of those polled lived in COVID hotspot regions. Furthermore, around 20.5% of those surveyed also considered themselves a member of a COVID vulnerable population. 
+Looking at our demographic data, we see that the majority of respondents were in the 35-44 category with the distribution of respondent ages skewing older (Figure 1.1). We also find that a large majority (79.5%) of those polled lived in COVID hotspot regions (Figure 1.2). Furthermore, around 20.5% of those surveyed also considered themselves a member of a COVID vulnerable population (Figure 1.3). In Figure 1.4 we can also see that the majority of respondents to the survey considered themselves to be affiliated with the Conservative Party already. 
 
+# IV.b Respondent Information and Trust in COVID-19 Resources
+
+```{r primary_source, echo=FALSE, fig.height=6}
+# Colour palette
+
+cbPalette <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00")
+
+#Distribution of Primary Sources
+my_data %>% 
+  ggplot(aes(x = Primary_Source)) +
+  geom_bar(colour ="black", fill=cbPalette) +
+  labs(x = "Primary Information Source",
+       y = "Frequency",
+       title = "Figure 2.1 Primary Source for COVID-19 Information") +
+  theme(axis.text.x=element_text(angle=90), 
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+```{r trustworthy_source, echo=FALSE, fig.height=6}
+
+#Distribution of Most Trusted source
+my_data %>% 
+  ggplot(aes(x = Trustworthy_Source)) +
+  geom_bar(colour ="black", fill=cbPalette) +
+  labs(x = "Most Trusted Information Source",
+       y = "Frequency",
+       title = "Figure 2.2 Most Trusted Source for COVID-19 Information") +
+  theme(axis.text.x=element_text(angle=90), 
+        panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+
+```
+
+We polled respondents on how they gather information about COVID-19 and their attitudes and trust towards different media sources. In Figure 2.1 above, we find that the majority of people get their news from social media and television. In Figure 2.2. we find however that the most trusted sources of news are television news and newspapers.
+
+```{r personal_confidence, echo=FALSE}
+
+#Distribution of Confidence
+my_data %>% 
+  ggplot(aes(x = Knowledgeable)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Confidence",
+       y = "Frequency",
+       title = "Figure 2.3: Respondent Knowledgeability Levels in COVID-19 Awareness") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+For this question, respondents were asked to self-report their knowledgeability of COVID-19 information. 1 was considered to be least knowledgeable and 5 was considered most knowledgeable.
+
+```{r conservative, echo=FALSE}
+#Trust in Conservative Party
+my_data %>% 
+  ggplot(aes(x = Trust_Conservative_Party)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 2.4: 'Do you trust the OPC to handle the COVID-19 response?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
+```{r doug_ford, echo=FALSE}
+
+#Trust in Doug Ford
+my_data %>% 
+  ggplot(aes(x = Trust_Doug_Ford)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 2.5: Do you trust Doug Ford to handle the COVID-19 response?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+Figures 2.3 and 2.4 polled respondents on their views towards the Ontario Progressive Conservative Party and Doug Ford in relation to handling COVID-19. In both cases, a majority of respondents had trust in the party's leadership during the pandemic.
 
 ## Part V. Discussion
-This suggests that government resources should be directed towards X, Y, Z in order to educate and improve.
+This suggests that government resources should be directed towards X, Y, Z in order to educate and improve. Overall, the 
 
 ## Part VI. Weaknesses and Next Steps
     One major weakness of our survey is the potential for self-reporting bias. Respondents are more 
