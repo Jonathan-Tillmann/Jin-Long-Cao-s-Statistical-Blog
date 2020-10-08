@@ -104,7 +104,7 @@ my_data %>%
 
 
 ## Part IV. Simulated Survey Results
-For the purposes of this report, our dataset was simulated through some assumptions made about the population frame. Age demographics were sourced from Statistics Canada and adjusted for non-response bias to provide an accurate representation of the potential survey respondents.
+For the purposes of this report, our dataset was simulated through some assumptions made about the population frame. For example, age demographics were sourced from Statistics Canada and adjusted for non-response bias to provide an accurate representation of the potential survey respondents.
 
 # IV.a Demographic Data
 ```{r age_graph, echo=FALSE}
@@ -139,7 +139,7 @@ my_data %>%
 
 ```
 
-For the purposes of this question, participants were told that vulnerable groups included (but were not limited to) those over the age of 60, obese individuals, and those with pre-existing health conditions like respiratory infections, any type of cancer, and neurological conditions like dementia.
+For the purposes of this question, participants were told that vulnerable groups included (but were not limited to) those over the age of 60, obese individuals, and those with pre-existing health conditions like respiratory infections, any type of cancer, and neurological conditions like dementia (cite this! https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html).
 
 ```{r living_graph, echo=FALSE}
 
@@ -262,7 +262,73 @@ my_data %>%
 
 Figures 2.3 and 2.4 polled respondents on their views towards the Ontario Progressive Conservative Party and Doug Ford in relation to handling COVID-19. In both cases, a majority of respondents had trust in the party's leadership during the pandemic.
 
-# IV.c.
+# IV.c. Respondent Habits During COVID-19
+
+```{r mask, echo=FALSE}
+#Mask adherance rate
+my_data %>% 
+  ggplot(aes(x = Mask_Frequency)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.1: 'How often do you wear a mask?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
+For this purposes of this question, respondents were polled on how often they wear a mask when outdoors, in public, where social distancing is not possible.
+
+```{r social_bubble, echo=FALSE}
+#Social bubble adherence
+my_data %>% 
+  ggplot(aes(x = Social_Bubble)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.2: 'Do you adhere to a social bubble/circle?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+
+For the purposes of this question, a social bubble/circle is defined as a group of no more than 10 people (including household members) who can interact with each other without following social distancing protocols (cite this! https://www.ontario.ca/page/create-social-circle-during-covid-19).
+
+```{r follow_rules, echo=FALSE, fig.height = 6}
+#Private establishment rule adherence
+my_data %>% 
+  ggplot(aes(x = Follow_Regulation)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.3: 'Do you adhere to all social-distancing/hygiene rules when visiting private establishments?'") +
+  theme(axis.text.x=element_text(angle=90), panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
+```{r non-essential, echo=FALSE}
+#Social bubble adherence
+my_data %>% 
+  ggplot(aes(x = Social_Bubble)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.4: 'How often do you'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+```{r travel_Canada, echo=FALSE}
+#Travel within Canada
+
+
+
+```
 
 ## Part V. Discussion
 This suggests that government resources should be directed towards X, Y, Z in order to educate and improve. Overall, the 
@@ -351,12 +417,14 @@ my_data <- tibble(
 
 The code below was used to create all of the graphs used in this report.
 
-*The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at this link [here]*
+*The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at the following link: https://github.com/JinLong-Cao/Jin-Long-Cao-s-Statistical-Blog/tree/master/content/post*
 
 ## References
 
-- Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
-  Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
 - R Core Team (2020). R: A language and environment for statistical
   computing. R Foundation for Statistical Computing, Vienna, Austria.
   URL https://www.R-project.org/.
+- Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
+  Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+- Yihui Xie (2020). blogdown: Create Blogs and Websites with R Markdown. R
+  package version 0.20.
