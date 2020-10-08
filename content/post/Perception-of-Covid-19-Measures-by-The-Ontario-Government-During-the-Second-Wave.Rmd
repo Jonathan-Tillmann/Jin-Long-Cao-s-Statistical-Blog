@@ -118,7 +118,7 @@ my_data %>%
   geom_bar(colour ="black", fill="steelblue") +
   labs(x = "Ages",
        y = "Frequency",
-       title = "Figure 1: Distribution of Respondent Age") +
+       title = "Figure 1.1: Distribution of Respondent Age") +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
@@ -126,7 +126,38 @@ my_data %>%
 
 ```
 
-  
+```{r vulnerable_graph, echo=FALSE}
+
+#Distribution of Vulnerable Populations
+my_data %>% 
+  ggplot(aes(x = Vulnerable_Population)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 1.2: Responses to 'Are you a member of a COVID-vulnerable group?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+For the purposes of this question, participants were told that vulnerable groups included (but were not limited to) those over the age of 60, obese individuals, and those with pre-existing health conditions like respiratory infections, any type of cancer, and neurological conditions like dementia.
+
+```{r living_graph, echo=FALSE}
+
+#Distribution of Living in COVID Hotspots
+my_data %>% 
+  ggplot(aes(x = Age)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Ages",
+       y = "Frequency",
+       title = "Figure 1.3: Distribution of Respondent Age") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
+For the purposes of this question, 
 ```{r political_graph, echo=FALSE}
 # Colour palette
 
@@ -138,15 +169,12 @@ my_data %>%
   geom_bar(colour ="black", fill=partyPalette) +
   labs(x = "Respondent Political Party Affiliations",
        y = "Frequency",
-       title = "Figure 2: Distribution of Respondent Political Affiliation") +
+       title = "Figure 1.4: Distribution of Respondent Political Affiliation") +
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
 ```
 
-```{r }
-
-```
 
 
 ## Part V. Discussion
@@ -159,12 +187,12 @@ Furthermore, as this poll is being conducted on behalf of the Progressive Conser
     Finally, the subject matter of the survey may lead to a response bias towards those who are directly affected by COVID-19, either being a member of or close to a member of a vulnerable population.
 
 
-*The code and simulated data used in this report’s analysis can be found at the GitHub tab linked on the blog header as well as at this link [here]*
 
 
 
-## Appendixf
+## Appendix
 
+*The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at this link [here]*
 
 ## References
 
