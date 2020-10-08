@@ -12,23 +12,23 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-# Executive summary
+## Executive summary
 
 Petit Poll has been asked by the Rohan and Sam Party ('the Party') to survey British Columbia to understand whether people are likely to vote for the Party in the upcoming general election. We surveyed....
 
-# Part I. Introduction
+## Part I. Introduction
 
 The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, maximize positive outcomes, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. Our findings show that the younger voting population lags behind in awareness of best practices around COVID.
 
 
-# Part II. Survey methodology 
+## Part II. Survey methodology 
 
 The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit ‘5’. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
 A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (cite textbook here).
 In the end we received a response from roughly Y% of households surveyed which resulted in  roughly 1 500 data points. 
 The survey cost roughly $60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
 
-# Part III. Survey
+## Part III. Survey
 
 The questions found in the survey can be found below. The survey can be accessed at the following link: [link here]. 
 Add a link to the survey and screen shots of the questions.
@@ -37,73 +37,61 @@ Add a link to the survey and screen shots of the questions.
 #Simulating data
 #We can always change the prob to fit our report
 set.seed(666)
+
+# Number of respondents to our survey
+sample_size = 1598
+
+#What is your age?
 my_data <- tibble(
-  Age  = sample(x = c("18-24", "25-34", "35-44", "45-54", "50-64", "65-74", "75-100"), size = 15987, replace = TRUE, prob = c(0.2, 0.225, 0.15, 0.20, .105, 0.07, 0.05)),
+  Age  = sample(x = c("18-24", "25-34", "35-44", "45-54", "50-64", "65-74", "75-100"), size = sample_size, replace = TRUE, prob = c(0.2, 0.225, 0.15, 0.20, .105, 0.07, 0.05)),
   
-  Vulnerable_Population = sample(x = c("Yes", "No", "Not sure"), size = 15987, replace = TRUE, prob = c(0.2, 0.7, 0.1)),
+#Are you a member of a vulnerable population?
+  Vulnerable_Population = sample(x = c("Yes", "No", "Not sure"), size = sample_size, replace = TRUE, prob = c(0.2, 0.7, 0.1)),
   
   #Do you live in one of the following administrative/metropolitan regions
-  Living = sample(x = c("Yes", "No"),  size = 15987, replace = TRUE, prob = c(0.8, 0.2)),
+  Living = sample(x = c("Yes", "No"),  size = sample_size, replace = TRUE, prob = c(0.8, 0.2)),
   
   Political_Party = sample(x = c("Conservative Party",
                                  "Liberal Party",
                                  "New Democratic",
                                  "Green Party",
                                  "No affiliation", "Other"),
-                           size = 15987, replace = TRUE, 
+                           size = sample_size, replace = TRUE, 
                            prob = c(0.4, 0.20, 0.105, 0.15, 0.1, 0.05)),
 
-  Primary_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = 15987, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
+  Primary_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
 
-  Trustworthy_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = 15987, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
+  Trustworthy_Source = sample(x = c("Social Media", "Television", "Newspapers", "Personal Research on the Internet", "Family and Friends", "Other"), size = sample_size, replace = TRUE, prob = c(0.3, 0.15, 0.2, 0.05, 0.25, 0.05)),
   
-  Knowledgeable = sample(c(1:5), size = 15987, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
+  Knowledgeable = sample(c(1:5), size = sample_size, replace = TRUE, prob = c(0.25, 0.15, 0.1, 0.2, 0.3)),
   
-  Trust_Conservative_Party = sample(x = c("Yes", "No", "Maybe"), size = 15987, replace = TRUE, prob = c(0.6, 0.3, 0.1)),
+  Trust_Conservative_Party = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.6, 0.3, 0.1)),
   
-  Trust_Doug_Ford = sample(x = c("Yes", "No", "Maybe"), size = 15987, replace = TRUE, prob = c(0.5, 0.4, 0.1)),
+  Trust_Doug_Ford = sample(x = c("Yes", "No", "Maybe"), size = sample_size, replace = TRUE, prob = c(0.5, 0.4, 0.1)),
   
-  Mask_Frequency = sample(x = c("Always", "Most of the time", "Sometimes", "Rarely", "Never"), size = 15987, replace = TRUE, prob = c(0.25, 0.3, 0.2, 0.15, 0.1)),
+  Mask_Frequency = sample(x = c("Always", "Most of the time", "Sometimes", "Rarely", "Never"), size = sample_size, replace = TRUE, prob = c(0.25, 0.3, 0.2, 0.15, 0.1)),
   
-  Social_Bubble = sample(x = c("Yes", "No"), size = 15987, replace = TRUE, prob = c(0.7066, 0.2934)),
+  Social_Bubble = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.7066, 0.2934)),
   
   Follow_Regulation = sample(x = c("Yes, I follow all store requirements",
                                    "Mostly",
                                    "Only ones I think will be enforced",
                                    "None"),
-                             size = 15987, replace = TRUE, 
+                             size = sample_size, replace = TRUE, 
                            prob = c(0.25, 0.25, 0.25, 0.25)),
   
-  Visit_non_essentials = rpois(15987, 3),
+  Visit_non_essentials = rpois(sample_size, 3),
   
-  Travel_Within_Canada = sample(x = c("Yes", "No"), size = 15987, replace = TRUE, prob = c(0.8674, 0.1326)), 
+  Travel_Within_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.8674, 0.1326)), 
   
-  Travel_Out_Of_Canada = sample(x = c("Yes", "No"), size = 15987, replace = TRUE, prob = c(0.98743, 0.01257))
+  Travel_Out_Of_Canada = sample(x = c("Yes", "No"), size = sample_size, replace = TRUE, prob = c(0.98743, 0.01257))
 )
 ```
 
 Add a link to the survey and screen shots of the questions.
 
 ```{r, echo=FALSE, warning=FALSE}
-#Graphs
 
-my_data %>% 
-  ggplot(aes(x = Age)) +
-  geom_bar(colour ="black",
-           fill = "blue") +
-  labs(x = "Ages",
-       y = "Frequency",
-       title = "Figure 1: Distribution of People's Age") +
-  theme_bw()
-
-my_data %>% 
-  ggplot(aes(x = Political_Party)) +
-  geom_bar(colour ="black",
-           fill = "blue") +
-  labs(x = "Political Parties",
-       y = "Frequency",
-       title = "Figure 2: Distribution of Political Parties People Idenify With") +
-  theme_bw()
 
 my_data %>% 
   ggplot(aes(x = Travel_Within_Canada)) +
@@ -116,27 +104,97 @@ my_data %>%
 ```
 
 
-# Part IV. Simulated Survey Results
+## Part IV. Simulated Survey Results
 For the purposes of this report, our dataset was simulated through some assumptions made about the population frame. Age demographics were sourced from Statistics Canada and adjusted for non-response bias to provide an accurate representation of the potential survey respondents.
 
-# Part V. Discussion
+# IV.a Demographic Data
+```{r age_graph, echo=FALSE}
+
+#Graphs
+
+#Distribution of Respondent Age Graph
+my_data %>% 
+  ggplot(aes(x = Age)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Ages",
+       y = "Frequency",
+       title = "Figure 1.1: Distribution of Respondent Age") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+
+```
+
+```{r vulnerable_graph, echo=FALSE}
+
+#Distribution of Vulnerable Populations
+my_data %>% 
+  ggplot(aes(x = Vulnerable_Population)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 1.2: Responses to 'Are you a member of a COVID-vulnerable group?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+```
+
+For the purposes of this question, participants were told that vulnerable groups included (but were not limited to) those over the age of 60, obese individuals, and those with pre-existing health conditions like respiratory infections, any type of cancer, and neurological conditions like dementia.
+
+```{r living_graph, echo=FALSE}
+
+#Distribution of Living in COVID Hotspots
+my_data %>% 
+  ggplot(aes(x = Age)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Ages",
+       y = "Frequency",
+       title = "Figure 1.3: Distribution of Respondent Age") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
+For the purposes of this question, 
+```{r political_graph, echo=FALSE}
+# Colour palette
+
+partyPalette <- c("#0000CC", "#00FF33", "#CC0000", "#FF6600", "#666666", "#CCCCCC")
+
+#Distribution of Political Affiliation
+my_data %>% 
+  ggplot(aes(x = Political_Party)) +
+  geom_bar(colour ="black", fill=partyPalette) +
+  labs(x = "Respondent Political Party Affiliations",
+       y = "Frequency",
+       title = "Figure 1.4: Distribution of Respondent Political Affiliation") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
+
+
+## Part V. Discussion
 This suggests that government resources should be directed towards X, Y, Z in order to educate and improve.
 
-# Part VI. Weaknesses and Next Steps
+## Part VI. Weaknesses and Next Steps
     One major weakness of our survey is the potential for self-reporting bias. Respondents are more 
 Conducting our survey through residential phones introduced non-response bias in which the younger age brackets were not accurately represented. Individuals belonging to the younger age brackets are more likely to reside in households such that elders respond to their landline or live alone without a landline.
 Furthermore, as this poll is being conducted on behalf of the Progressive Conservative Party of Ontario, we are much more likely to receive responses from those who are affiliated with the party. This may further skew our survey results to include data points from those typically associated with the voter demographics.
     Finally, the subject matter of the survey may lead to a response bias towards those who are directly affected by COVID-19, either being a member of or close to a member of a vulnerable population.
 
 
-*The code and simulated data used in this report’s analysis can be found at the GitHub tab linked on the blog header as well as at this link [here]*
 
 
 
-# Appendixf
+## Appendix
 
+*The code and simulated data used in this report’s analysis can also be found at the GitHub tab linked on the blog header as well as at this link [here]*
 
-# References
+## References
 
 - Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
   Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
