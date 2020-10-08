@@ -379,7 +379,7 @@ knitr::include_graphics("Surveyquestions7.png")
 
 The code below was used to simulate the data.
 
-```{r simulate_data_appendix, echo=FALSE, eval=FALSE, warning=FALSE}
+```{r simulate_data_appendix, echo=TRUE, eval=FALSE, warning=FALSE}
 #Simulating data
 #We can always change the prob to fit our report
 set.seed(666)
