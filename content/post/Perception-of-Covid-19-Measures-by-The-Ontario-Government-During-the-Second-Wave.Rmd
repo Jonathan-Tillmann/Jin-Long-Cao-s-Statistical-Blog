@@ -16,22 +16,23 @@ library(tidyverse)
 
 Petit Poll has been asked by the Rohan and Sam Party ('the Party') to survey British Columbia to understand whether people are likely to vote for the Party in the upcoming general election. We surveyed....
 
-# Introduction
+# Part I. Introduction
+
+The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, maximize positive outcomes, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. Our findings show that the younger voting population lags behind in awareness of best practices around COVID.
 
 
-# Survey methodology 
+# Part II. Survey methodology 
 
-- What is the population frame and sample
-- What sampling methods will you use and why e.g. you could choose SRSWOR stratified etc. What are some of the statistical properties that the method brings to the table e.g. for SRSWOR you could discuss Wu Thompson Theorem 2.2. etc as appropriate
-- How are you going to reach your desired respondents
-- How much do you estimate this will cost
-- What steps will you take to deal with non-response and how will non-response affect your survey
-- How are you going to protect respondent privacy
+The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit ‘5’. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
+A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (cite textbook here).
+In the end we received a response from roughly Y% of households surveyed which resulted in  roughly 1 500 data points. 
+The survey cost roughly $60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
 
+# Part III. Survey
 
-and more...
+The questions found in the survey can be found below. The survey can be accessed at the following link: [link here]. 
+Add a link to the survey and screen shots of the questions.
 
-## Survey
 ```{r, echo=FALSE, warning=FALSE}
 #Simulating data
 #We can always change the prob to fit our report
@@ -115,16 +116,24 @@ my_data %>%
 ```
 
 
+# Part IV. Simulated Survey Results
+For the purposes of this report, our dataset was simulated through some assumptions made about the population frame. Age demographics were sourced from Statistics Canada and adjusted for non-response bias to provide an accurate representation of the potential survey respondents.
 
-## Results
+# Part V. Discussion
+This suggests that government resources should be directed towards X, Y, Z in order to educate and improve.
+
+# Part VI. Weaknesses and Next Steps
+    One major weakness of our survey is the potential for self-reporting bias. Respondents are more 
+Conducting our survey through residential phones introduced non-response bias in which the younger age brackets were not accurately represented. Individuals belonging to the younger age brackets are more likely to reside in households such that elders respond to their landline or live alone without a landline.
+Furthermore, as this poll is being conducted on behalf of the Progressive Conservative Party of Ontario, we are much more likely to receive responses from those who are affiliated with the party. This may further skew our survey results to include data points from those typically associated with the voter demographics.
+    Finally, the subject matter of the survey may lead to a response bias towards those who are directly affected by COVID-19, either being a member of or close to a member of a vulnerable population.
 
 
-# Discussion 
-
-## Weakness and areas for future
+*The code and simulated data used in this report’s analysis can be found at the GitHub tab linked on the blog header as well as at this link [here]*
 
 
-# Appendix
+
+# Appendixf
 
 
 # References
