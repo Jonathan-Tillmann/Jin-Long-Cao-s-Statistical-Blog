@@ -350,16 +350,36 @@ my_data %>%
 
 ## Part V. Discussion
 
-  Handling of the covd-19 pandemic has been a challenge, leaving anxious citizens looking for strong leadership. Although
+  Handling of the covid-19 pandemic has been a challenge, leaving anxious citizens looking for strong leadership. Although
 limited by federal restrictions, Ontario's government, led by premier Doug Ford, has passed several measures to help
-control spread of the virus including mandating that masks be worn indoors, limiting gatherings of people, closing 
-businesses when necessary etc.. While public safety is the number one goal of these changes, the public perception of the
+control spread of the virus, including mandating that masks be worn indoors, limiting gatherings of people, closing 
+businesses when necessary etc. While public safety is the number one goal of these changes, the public perception of the
 government's handling of the pandemic is important to the population, as it is more likely people who agree with the rules 
 will follow them, and the governing party, who will campaign on successes during the pandemic to secure office for another 
-term. Fortunately for Ontario public health, it appears most people are wearing their masks 
-This suggests that government resources should be directed towards X, Y, Z in order to educate and improve. Overall, the.
+term. Unfortunately for Ontario Public health, our data show that respondents were not diligent with wearing their masks or 
+staying home when asked however, most were not travelling within or outside of Canada. Meanwhile, the data vindicate Doug Ford
+and the conservative government as most respondents approved of both his and the parties' managing of the pandemic.
+  Although the government has urged citizens to wear a mask while out in public, from Figure 3.1, it is evident that these words
+were unheeded. Almost 25% of respondents were not wearing a mask most of the time while in public with only 55.7% "Always" or wearing
+a mask "Most of the Time". Ideally that number would be closer to 100%, leaving room only for those with medical issues to abstain.
+Further, Figure 3.4 demonstrates not only are people leaving their homes about 3**(check) times per week for non-essential purposes, but once
+out, most are not following social distancing rules set by the establishment (Figure 3.1). Aggravating these results in the fact that
+only 71.1% of survey participants claimed to be participating in social bubbling. One bright spot is that it appears an overwhelming 
+majority of respondents are forgoing travelling during the pandemic (Figure 3.5, 3.6).
+  There are possible several reasons for non-compliance of governmental suggestions but Figures 2.4 and 2.5 show it is unlikely
+due to the public's opinion of the management of the pandemic as the majority approve of the measures taken. However it should be
+noted that the respondents identified as mainly (~40%) associates of the Conservative party to which our premier belongs. Reasons for 
+failing to follow the government's instruction on personal hygiene and distancing measures could arise from the sources of information.
+Our results show notoriously problematic sources of information are both sought out and trusted. Social media (29.6%) and information
+from friends and family (25.2%) were the main sources of information while more credible sources such as newspapers (19.8%) and 
+television network news reports (15%) were less popular as shown by Figures 2.1 and 2.2. Finally, many respondents did not feel 
+confident in their knowledge of covid-19, evident from Figure 2.3, which could explain lack of commitment to following government measures.
+  Doug Ford and the Conservative Party's leadership may have a high approval in handling the pandemic however, our data show more needs to be 
+ done to ensure directions made by the government are followed. Poor sources of information  and lakc of confidence in personal knowledge
+ could be the reason for non-compliance of measures to control the pandemic. One solution could be to invest more in educating the general 
+ public on which sources of information to follow and trust. Another resolution could be to work with social media companies to limit the
+ spread of misinformation and promote pages related to trusted sources such as the Ontario government or Ontario Public Health.
 
-As for specific policies
 
 ## Part VI. Weaknesses and Next Steps
 
