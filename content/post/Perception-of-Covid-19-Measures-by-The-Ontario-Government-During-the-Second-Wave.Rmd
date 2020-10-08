@@ -12,23 +12,23 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-# Executive summary
+## Executive summary
 
 Petit Poll has been asked by the Rohan and Sam Party ('the Party') to survey British Columbia to understand whether people are likely to vote for the Party in the upcoming general election. We surveyed....
 
-# Part I. Introduction
+## Part I. Introduction
 
 The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, maximize positive outcomes, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. Our findings show that the younger voting population lags behind in awareness of best practices around COVID.
 
 
-# Part II. Survey methodology 
+## Part II. Survey methodology 
 
 The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit ‘5’. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
 A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (cite textbook here).
 In the end we received a response from roughly Y% of households surveyed which resulted in  roughly 1 500 data points. 
 The survey cost roughly $60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
 
-# Part III. Survey
+## Part III. Survey
 
 The questions found in the survey can be found below. The survey can be accessed at the following link: [link here]. 
 Add a link to the survey and screen shots of the questions.
@@ -91,25 +91,7 @@ my_data <- tibble(
 Add a link to the survey and screen shots of the questions.
 
 ```{r, echo=FALSE, warning=FALSE}
-#Graphs
 
-my_data %>% 
-  ggplot(aes(x = Age)) +
-  geom_bar(colour ="black",
-           fill = "blue") +
-  labs(x = "Ages",
-       y = "Frequency",
-       title = "Figure 1: Distribution of People's Age") +
-  theme_bw()
-
-my_data %>% 
-  ggplot(aes(x = Political_Party)) +
-  geom_bar(colour ="black",
-           fill = "blue") +
-  labs(x = "Political Parties",
-       y = "Frequency",
-       title = "Figure 2: Distribution of Political Parties People Idenify With") +
-  theme_bw()
 
 my_data %>% 
   ggplot(aes(x = Travel_Within_Canada)) +
@@ -122,13 +104,55 @@ my_data %>%
 ```
 
 
-# Part IV. Simulated Survey Results
+## Part IV. Simulated Survey Results
 For the purposes of this report, our dataset was simulated through some assumptions made about the population frame. Age demographics were sourced from Statistics Canada and adjusted for non-response bias to provide an accurate representation of the potential survey respondents.
 
-# Part V. Discussion
+# IV.a Demographic Data
+```{r age_graph, echo=FALSE}
+
+#Graphs
+
+#Distribution of Respondent Age Graph
+my_data %>% 
+  ggplot(aes(x = Age)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Ages",
+       y = "Frequency",
+       title = "Figure 1: Distribution of Respondent Age") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+
+
+```
+
+  
+```{r political_graph, echo=FALSE}
+# Colour palette
+
+partyPalette <- c("#0000CC", "#00FF33", "#CC0000", "#FF6600", "#666666", "#CCCCCC")
+
+#Distribution of Political Affiliation
+my_data %>% 
+  ggplot(aes(x = Political_Party)) +
+  geom_bar(colour ="black", fill=partyPalette) +
+  labs(x = "Respondent Political Party Affiliations",
+       y = "Frequency",
+       title = "Figure 2: Distribution of Respondent Political Affiliation") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
+```
+
+```{r }
+
+```
+
+
+## Part V. Discussion
 This suggests that government resources should be directed towards X, Y, Z in order to educate and improve.
 
-# Part VI. Weaknesses and Next Steps
+## Part VI. Weaknesses and Next Steps
     One major weakness of our survey is the potential for self-reporting bias. Respondents are more 
 Conducting our survey through residential phones introduced non-response bias in which the younger age brackets were not accurately represented. Individuals belonging to the younger age brackets are more likely to reside in households such that elders respond to their landline or live alone without a landline.
 Furthermore, as this poll is being conducted on behalf of the Progressive Conservative Party of Ontario, we are much more likely to receive responses from those who are affiliated with the party. This may further skew our survey results to include data points from those typically associated with the voter demographics.
@@ -139,10 +163,10 @@ Furthermore, as this poll is being conducted on behalf of the Progressive Conser
 
 
 
-# Appendixf
+## Appendixf
 
 
-# References
+## References
 
 - Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
   Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
