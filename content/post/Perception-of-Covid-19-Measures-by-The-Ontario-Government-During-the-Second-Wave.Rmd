@@ -1,7 +1,7 @@
 ---
 title: "Perception of Covid-19 Measures by The Ontario Government During the Second Wave"
 author: "Jin Long Cao, Brian Diep, Johnathan Tillman, Tanya Woloshansky"
-date: 2020-10-07
+date: 2020-10-02
 categories: ["R"]
 tags: ["R Markdown", "plot", "regression"]
 ---
@@ -379,7 +379,7 @@ knitr::include_graphics("Surveyquestions7.png")
 
 The code below was used to simulate the data.
 
-```{r simulate_data_appendix, echo=TRUE, eval=FALSE, warning=FALSE}
+```{r simulate_data_appendix, echo=FALSE, eval=FALSE, warning=FALSE}
 #Simulating data
 #We can always change the prob to fit our report
 set.seed(666)
