@@ -287,6 +287,7 @@ my_data %>%
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
 
+proportions(table(data.frame(my_data[10])))
 ```
 
 
@@ -348,6 +349,14 @@ my_data %>%
 ```
 
 ## Part V. Discussion
+
+  Handling of the covd-19 pandemic has been a challenge, leaving anxious citizens looking for strong leadership. Although
+limited by federal restrictions, Ontario's government, led by premier Doug Ford, has passed several measures to help
+control spread of the virus including mandating that masks be worn indoors, limiting gatherings of people, closing 
+businesses when necessary etc.. While public safety is the number one goal of these changes, the public perception of the
+government's handling of the pandemic is important to the population, as it is more likely people who agree with the rules 
+will follow them, and the governing party, who will campaign on successes during the pandemic to secure office for another 
+term. Fortunately for Ontario public health, it appears most people are wearing their masks 
 This suggests that government resources should be directed towards X, Y, Z in order to educate and improve. Overall, the.
 
 As for specific policies
