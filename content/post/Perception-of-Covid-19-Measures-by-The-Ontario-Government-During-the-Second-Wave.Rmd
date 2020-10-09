@@ -13,12 +13,15 @@ library(tidyverse)
 
 ## Executive summary
 
-  Petit Poll was asked by the Conservative Party of Ontario to survey the Ontario public in regards to the current COVID-19 pandemic to better understand whether people are likely to vote for the Party in the upcoming general election. We conducted a mock survey based on simulated respondent parameters to give a cursory look into the broader trends in public health awareness regarding COVID-19. In summary, we find that government strategy should be to . Since our survey included questions relying on respondents to report their personal habits and knowledge regarding COVID-19, we believe these responses could be embellished to view the respondent in a more favourable light. The survey also underrepresents the younger voters of Ontario and has a majority response from Conservative voters and those greatly impacted by COVID-19 policies. Future studies should target the young voters and of particular concern are their social media habits. These studies would enable our employer to target them with information on party policies to positively impact their view of the Conservative Party.
+  Petit Poll has been asked by the Conservative Party of Ontario to survey the Ontario public in regards to the current COVID-19 pandemic to better understand whether people are likely to vote for the Party in the upcoming general election. We conducted a mock survey using simulated respondents to give a cursory look into the broader trends in public health awareness regarding COVID-19. However, since our survey included questions relying on respondents to report their personal habits and knowledge regarding COVID-19, we believe these responses could be embellished to view the respondent in a more favourable light. The survey also underrepresents the younger voters of Ontario and has a majority response from Conservative voters and those greatly impacted by COVID-19 policies.
+  
+  We find with our simulated data that there still exists a significant degree of non-compliance that is not ideal for containing the pandemic. In particular, we have evidence that media misinformation and social media may be a key factor in these elevated non-compliance rates. In summary, we find that government strategy should be to increase public information and trust by targeting social media with information campaigns. Future studies should use a similar sampling population and study their social media habits. These studies would enable our employer to target Ontarians with information on party policies to positively impact their view of the Conservative Party.
 
 
 ## Part I. Introduction
 
-  The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, maximize positive outcomes, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. Our findings show that the younger voting population lags behind in awareness of best practices around COVID.
+  The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, reduce the negative impacts of the pandemic, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey (using simulated data) to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. We find that non-compliance with public health guidelines remains a significant obstacle to combatting the pandemic. Our key findings suggest that misinformation, specifically that relating to social media use, are significant contributing factors towards these less than optimal compliance rates. We expect that the Conservative party and government can seek to reduce these levels of misinformation through the targeting of information campaigns on social media platforms.
+
 
 
 ## Part II. Survey methodology 
@@ -287,8 +290,6 @@ my_data %>%
   theme(panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
-
-proportions(table(data.frame(my_data[10])))
 ```
 
 
@@ -617,6 +618,8 @@ my_data %>%
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
 
+proportions(table(data.frame(my_data[10])))
+
 #Private establishment rule adherence
 my_data %>% 
   ggplot(aes(x = Follow_Regulation)) +
@@ -676,16 +679,18 @@ my_data %>%
 - H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York,
   2016.
   
-- Public Health Ontario. 2020. "COVID-19 Public Resources" Retrieved from: https://www.publichealthontario.ca/en/diseases-and-conditions/infectious-diseases/respiratory-diseases/novel-coronavirus/public-resources
-  
 - Lee, Mie-Yun (2002). "Conducting Surveys and Focus Groups." Entrepreneur. Retried from: www.entrepreneur.com/article/55680. 
 
 - Mae Jones, Alexandra (2020). "Mapping out Canada's COVID-19 hotspots: new modelling shows   where cases are rising." CTV News. Bell Media. Retrieved from:                             https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985
 
 - Ministry of Health Ontario. 2020. "Creating a social circle during COVID-19" Retrieved     from: https://www.ontario.ca/page/create-social-circle-during-covid-19
+- Public Health Ontario. 2020. "COVID-19 Public Resources" Retrieved from: https://www.publichealthontario.ca/en/diseases-and-conditions/infectious-diseases/respiratory-diseases/novel-coronavirus/public-resources
+  
 - R Core Team (2020). R: A language and environment for statistical
   computing. R Foundation for Statistical Computing, Vienna, Austria.
   URL https://www.R-project.org/.
+- Statistics Canada, 2020. Table 17-10-0005-01 Population estimates on July 1st, by age and sex
+
 - Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
 - Wu, Changbao and Mary E. Thompson. 2020. Sampling Theory and Practice, Springer.
   Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
