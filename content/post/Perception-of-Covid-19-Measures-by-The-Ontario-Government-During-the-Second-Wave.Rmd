@@ -8,7 +8,7 @@ tags: ["R Markdown", "plot", "regression"]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-install.packages('plotrix')
+#install.packages('plotrix')
 library(tidyverse)
 ```
 
@@ -687,6 +687,9 @@ my_data %>%
 - H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
   
 - Lee, Mie-Yun (2002). "Conducting Surveys and Focus Groups." Entrepreneur. Retried from: www.entrepreneur.com/article/55680. 
+
+- Lemon, J. (2006) Plotrix: a package in the red light district of R. R-News, 6(4):
+  8-12.
 
 - Mae Jones, Alexandra (2020). "Mapping out Canada's COVID-19 hotspots: new modelling shows   where cases are rising." CTV News. Bell Media. Retrieved from:                             https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985
 
