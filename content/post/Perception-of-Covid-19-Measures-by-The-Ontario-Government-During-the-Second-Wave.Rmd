@@ -1,9 +1,14 @@
 ---
-title: "Perception of Covid-19 Measures by The Ontario Government During the Second Wave"
+title: Perception of Covid-19 Measures by The Ontario Government During the Second
+  Wave
 author: "Jin Long Cao, Brian Diep, Johnathan Tillman, Tanya Woloshansky"
-date: 2020-10-02
-categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+date: '2020-10-02'
+output: pdf_document
+tags:
+- R Markdown
+- plot
+- regression
+categories: R
 ---
 
 ```{r setup, include=FALSE}
@@ -310,7 +315,7 @@ my_data %>%
   geom_bar(colour ="black", fill="steelblue") +
   labs(x = "Response",
        y = "Frequency",
-       title = "Figure 3.3: 'Do you adhere to all social-distancing/hygiene rules when visiting private establishments?'") +
+       title = "Figure 3.3: 'Do you adhere to all health measures at private establishments?'") +
   theme(axis.text.x=element_text(angle=90), panel.background = element_rect(fill = "lightblue",
                                 colour = "lightblue",
                                 size = 0.5, linetype = "solid"))
