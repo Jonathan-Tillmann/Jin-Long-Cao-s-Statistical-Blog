@@ -13,20 +13,21 @@ library(tidyverse)
 
 ## Executive summary
 
-Petit Poll was asked by the Conservative Party of Ontario to survey the Ontario public in regards to the current COVID-19 pandemic to better understand whether people are likely to vote for the Party in the upcoming general election. We conducted a mock survey based on simulated respondent parameters to give a cursory look into the broader trends in public health awareness regarding COVID-19. In summary, we find that government strategy should be to . Since our survey included questions relying on respondents to report their personal habits and knowledge regarding COVID-19, we believe these responses could be embellished to view the respondent in a more favourable light. The survey also underrepresents the younger voters of Ontario and has a majority response from Conservative voters and those greatly impacted by COVID-19 policies. Future studies should target the young voters and of particular concern are their social media habits. These studies would enable our employer to target them with information on party policies to positively impact their view of the Conservative Party.
+  Petit Poll was asked by the Conservative Party of Ontario to survey the Ontario public in regards to the current COVID-19 pandemic to better understand whether people are likely to vote for the Party in the upcoming general election. We conducted a mock survey based on simulated respondent parameters to give a cursory look into the broader trends in public health awareness regarding COVID-19. In summary, we find that government strategy should be to . Since our survey included questions relying on respondents to report their personal habits and knowledge regarding COVID-19, we believe these responses could be embellished to view the respondent in a more favourable light. The survey also underrepresents the younger voters of Ontario and has a majority response from Conservative voters and those greatly impacted by COVID-19 policies. Future studies should target the young voters and of particular concern are their social media habits. These studies would enable our employer to target them with information on party policies to positively impact their view of the Conservative Party.
 
 
 ## Part I. Introduction
 
-The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, maximize positive outcomes, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. Our findings show that the younger voting population lags behind in awareness of best practices around COVID.
+  The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, maximize positive outcomes, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. Our findings show that the younger voting population lags behind in awareness of best practices around COVID.
 
 
 ## Part II. Survey methodology 
 
-The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit '5'. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
-A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (Changbao and Thomspon, 2020).
-In the end we received a response from roughly Y% of households surveyed which resulted in  roughly 1 500 data points. 
-The survey cost roughly \$60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
+  The population of interest for this survey are all people of voting age residing in Ontario and the population frame are all residential households within the province of Ontario. Our survey was delivered via telephone. We sampled all publicly available residential phone numbers ending in the digit '5'. This is a form of simple systematic sampling that provides a structured way to gather a large number of samples from the population frame while being representative of the true population.
+  
+  A typical issue with simple systematic sampling is the existence of periodic patterns in the sample which may cause our sample to be unrepresentative of the true population. This is resolved through our survey methodology as each residential phone number is assumed to be independent of any others and therefore sampled points should be evenly distributed throughout the population (Changbao and Thomspon, 2020).
+  
+  In the end we received a response from a much smaller subset of the population frame which resulted in roughly 1 500 data points. We expect the survey to cost roughly \$60 000 to provide based on the average of $40 per response for the average phone survey (Mie Yun-Lee, 2002). We required respondents to answer all questions of the survey and any respondents who failed to answer all questions were removed from the sample. Significant non-response biases were also resolved through postsurvey methods that reweighted responses from subpopulations with higher non-response rates. To protect the privacy of the respondent, they were simply assigned an ID number and minimal identifying information.
 
 ## Part III. Survey
 
@@ -350,48 +351,32 @@ my_data %>%
 
 ## Part V. Discussion
 
-  Handling of the covid-19 pandemic has been a challenge, leaving anxious citizens looking for strong leadership. Although
-limited by federal restrictions, Ontario's government, led by premier Doug Ford, has passed several measures to help
-control spread of the virus, including mandating that masks be worn indoors, limiting gatherings of people, closing 
-businesses when necessary etc. While public safety is the number one goal of these changes, the public perception of the
-government's handling of the pandemic is important to the population, as it is more likely people who agree with the rules 
-will follow them, and the governing party, who will campaign on successes during the pandemic to secure office for another 
-term. Unfortunately for Ontario Public health, our data show that respondents were not diligent with wearing their masks or 
-staying home when asked however, most were not travelling within or outside of Canada. Meanwhile, the data vindicate Doug Ford
-and the conservative government as most respondents approved of both his and the parties' managing of the pandemic.
-  Although the government has urged citizens to wear a mask while out in public, from Figure 3.1, it is evident that these words
-were unheeded. Almost 25% of respondents were not wearing a mask most of the time while in public with only 55.7% "Always" or wearing
-a mask "Most of the Time". Ideally that number would be closer to 100%, leaving room only for those with medical issues to abstain.
-Further, Figure 3.4 demonstrates not only are people leaving their homes about 3**(check) times per week for non-essential purposes, but once
-out, most are not following social distancing rules set by the establishment (Figure 3.1). Aggravating these results in the fact that
-only 71.1% of survey participants claimed to be participating in social bubbling. One bright spot is that it appears an overwhelming 
-majority of respondents are forgoing travelling during the pandemic (Figure 3.5, 3.6).
-  There are possible several reasons for non-compliance of governmental suggestions but Figures 2.4 and 2.5 show it is unlikely
-due to the public's opinion of the management of the pandemic as the majority approve of the measures taken. However it should be
-noted that the respondents identified as mainly (~40%) associates of the Conservative party to which our premier belongs. Reasons for 
-failing to follow the government's instruction on personal hygiene and distancing measures could arise from the sources of information.
-Our results show notoriously problematic sources of information are both sought out and trusted. Social media (29.6%) and information
-from friends and family (25.2%) were the main sources of information while more credible sources such as newspapers (19.8%) and 
-television network news reports (15%) were less popular as shown by Figures 2.1 and 2.2. Finally, many respondents did not feel 
-confident in their knowledge of covid-19, evident from Figure 2.3, which could explain lack of commitment to following government measures.
-  Doug Ford and the Conservative Party's leadership may have a high approval in handling the pandemic however, our data show more needs to be 
- done to ensure directions made by the government are followed. Poor sources of information  and lakc of confidence in personal knowledge
- could be the reason for non-compliance of measures to control the pandemic. One solution could be to invest more in educating the general 
- public on which sources of information to follow and trust. Another resolution could be to work with social media companies to limit the
- spread of misinformation and promote pages related to trusted sources such as the Ontario government or Ontario Public Health.
+  The handling of the COVID-19 pandemic has been a challenge, leaving anxious citizens looking for strong leadership. Although limited by federal restrictions Ontario's government has passed several measures to help control spread of the virus, including mandating that masks be worn indoors, limiting gatherings of people, and closing businesses when necessary. While public safety is the number one goal of these changes, the public perception of the government's handling of the pandemic is duly important to Ontarians and the Conservative party. More people who agree with the restrictions set by the government will follow them and the governing party can campaign on successes during the pandemic to secure office for another term.
+  
+  Our survey results show that Ontarians had varying degrees of compliance with the various guidelines set forth by the provincial government. For example, despite the government's urging for citizens to wear a mask while out in public we can see from Figure 3.1 it is evident that their guideline is taken lightly. Almost 25% of respondents were not wearing a mask most of the time while in public, with only 55.7% "Always" or "Most of the Time" wearing a mask. Ideally that number would be closer to 100%, leaving room only for those with medical issues to abstain.
+
+  Furthermore, Figure 3.4 demonstrates not only are people leaving their homes about 3 times per week for non-essential purposes, but more worryingly, most are not following social distancing rules set by the establishment once they are out of the house (Figure 3.1). Another point of weakness is adherence to social bubbles/circles. From Figure 3.2, we see that only 71.1% of survey participants claimed to be participating in social bubbling. 
+
+  On the other hand, one area that has high levels of compliance is non-essential travel. From Figures 3.5 and 3.6 it appears an overwhelming majority of respondents are forgoing travelling during the pandemic.
+
+  There are possibly several reasons for non-compliance of governmental suggestions but Figures 2.4 and 2.5 show it is unlikely due to the public's opinion of the management of the pandemic. The data vindicates Doug Ford and the Conservative government, as most respondents approved of both his and the party's management of the pandemic. Therefore, it indicates that the majority of citizens approve of the measures taken. However, it should be noted that a large percentage of respondents (~40%), identified as associates of the Conservative party to which our premier belongs. 
+
+  Reasons for failing to follow the government's instruction on personal hygiene and distancing measures could arise from the sources of information. Our results show notoriously problematic sources of information are both sought out and trusted. Social media (29.6%) and information from friends and family (25.2%) were the main sources of information regarding COVID-19, while more credible sources such as newspapers (19.8%) and television network news reports (15%) were less popular as shown by Figures 2.1 and 2.2. Finally, many respondents did not feel confident in their knowledge of COVID-19-evident from Figure 2.3-which could explain lack of commitment to following government measures.
+
+  Doug Ford and the Conservative Party's leadership may have a high approval in handling the pandemic however, our data show more needs to be done to ensure directions made by the government are followed. Poor sources of information and lack of confidence in personal knowledge could be the reason for non-compliance of restrictions to control the pandemic. One solution could be to invest more in educating the general public on which sources of information to follow and trust. Another resolution could be to work with social media companies to limit the spread of misinformation and promote pages related to trusted sources such as the Ontario government or Ontario Public Health.
 
 
 ## Part VI. Weaknesses and Next Steps
 
-  One major weakness of our survey is the potential for self-reporting bias. Respondents are more likely to offer responses that they view would portray them in a better light. A specific question that may have inflated responses is how respondents view their own knowledge on COVID-19. 
-  
+ One major weakness of our survey is the potential for self-reporting bias. Respondents are more likely to offer responses that they view would portray them in a better light. A specific question that may have inflated responses is how respondents view their own knowledge on COVID-19. 
+ 
   Conducting our survey through residential phones may also have introduced non-response bias in which the younger age brackets were not accurately represented. Individuals belonging to the younger age brackets are more likely to reside in households such that elders respond to their landline or live alone without a landline.
   
   Furthermore, as this poll is being conducted on behalf of the Progressive Conservative Party of Ontario, we are much more likely to receive responses from those who are affiliated with the party. This may further skew our survey results to include data points from those typically associated with the voter demographics.
   
   Additionally, the subject matter of the survey may lead to a response bias towards those who are directly affected by COVID-19, either being a member of or close to a member of a vulnerable population. These results gathered from this subset of the population are likely to show they are informed of COVID-19 and the best practices surrounding it.
-  
-  Future studies conducted based on our simulated data should be concentrated on the younger age bracket respondents. Specifically, more insight into the types of social media used by the younger age brackets would provide the Conservative Party of Ontario avenues to target the demographic with policy information not limited to COVID-19. A follow up survey could also have Ontarians aged 18-34 as the sampling frame and ask questions regarding the specific social media platforms they use and the average time spent browsing each in a day. 
+
+  As we pointed out in our discussion above, social media is a key factor that can influence public information about health and other important sectors. Future studies that can be conducted should be concentrated on the social media use of Ontarians. Specifically, more insight into the types of social media used by citizens would provide the Conservative Party of Ontario avenues to target the demographic with policy information not limited to COVID-19. A follow up survey could also have a similar sampling frame and ask questions regarding the specific social media platforms they use and the average time spent browsing each in a day. All of this provides groundwork for the Conservative Party to reach out to its voter base as well as all Ontarians with further information.
 
 ## Appendix
 
@@ -686,8 +671,13 @@ my_data %>%
 
 ## References
 
--Government of Canada, 2020. "People who are at high risk for severe illness from COVID-19." Retrieved from: https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html
+- Government of Canada, 2020. "People who are at high risk for severe illness from COVID-19." Retrieved from: https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html
 
+- H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York,
+  2016.
+  
+- Public Health Ontario. 2020. "COVID-19 Public Resources" Retrieved from: https://www.publichealthontario.ca/en/diseases-and-conditions/infectious-diseases/respiratory-diseases/novel-coronavirus/public-resources
+  
 - Lee, Mie-Yun (2002). "Conducting Surveys and Focus Groups." Entrepreneur. Retried from: www.entrepreneur.com/article/55680. 
 
 - Mae Jones, Alexandra (2020). "Mapping out Canada's COVID-19 hotspots: new modelling shows   where cases are rising." CTV News. Bell Media. Retrieved from:                             https://www.ctvnews.ca/health/coronavirus/mapping-out-canada-s-covid-19-hotspots-new-modelling-shows-where-cases-are-rising-1.5115985
