@@ -1,6 +1,5 @@
 ---
-title: Perception of Covid-19 Measures by The Ontario Government During the Second
-  Wave
+title: Investigating Perception and Compliance with Ontario's COVID-19 Measures
 author: "Jin Long Cao, Brian Diep, Johnathan Tillman, Tanya Woloshansky"
 date: '2020-10-02'
 output: pdf_document
