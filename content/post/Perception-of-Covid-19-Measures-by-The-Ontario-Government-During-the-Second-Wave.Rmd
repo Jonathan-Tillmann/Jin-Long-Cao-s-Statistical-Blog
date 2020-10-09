@@ -265,16 +265,24 @@ Figures 2.3 and 2.4 polled respondents on their views towards the Ontario Progre
 # IV.c. Respondent Habits During COVID-19
 
 ```{r mask, echo=FALSE}
+library(plotrix)
+dat<-table(my_data[10])
+#proportions(dat)
+lbls <- c("Always - 25.71%", "Mostly - 30.01%", "Sometimes 19.53%", "Rarely 14.38%", "Never - 10.36%")
+lp <-c(0.3078493, 2.0585498, 3.8268202, 4.6040142, 5.6694871)
+pie3D(dat, radius = .7, labels=lbls,explode=0.1, main="Figure 3.1: How Often Respondents Wear a Mask When Out in Public", labelcex=.8, la)
+
+
 #Mask adherance rate
-my_data %>% 
-  ggplot(aes(x = Mask_Frequency)) +
-  geom_bar(colour ="black", fill="steelblue") +
-  labs(x = "Response",
-       y = "Frequency",
-       title = "Figure 3.1: 'How often do you wear a mask?'") +
-  theme(panel.background = element_rect(fill = "lightblue",
-                                colour = "lightblue",
-                                size = 0.5, linetype = "solid"))
+#my_data %>% 
+#  ggplot(aes(x = Mask_Frequency)) +
+#  geom_bar(colour ="black", fill="steelblue") +
+ # labs(x = "Response",
+ #      y = "Frequency",
+ #      title = "Figure 3.1: 'How often do you wear a mask?'") +
+ # theme(panel.background = element_rect(fill = "lightblue",
+ #                               colour = "lightblue",
+ #                               size = 0.5, linetype = "solid"))
 ```
 
 For this purposes of this question, respondents were polled on how often they wear a mask when outdoors, in public, where social distancing is not possible.
