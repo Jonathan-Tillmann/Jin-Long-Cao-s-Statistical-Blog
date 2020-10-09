@@ -20,7 +20,7 @@ library(tidyverse)
 
 ## Part I. Introduction
 
-  The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, reduce the negative impacts of the pandemic, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey (using simulated data) to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. We find that non-compliance with public health guidelines remains a significant obstacle to combatting the pandemic. Our key findings suggest that misinformation, specifically that relating to social media use, are significant contributing factors towards these less than optimal compliance rates. We expect that the Conservative party and government can seek to reduce these levels of misinformation through the targeting of information campaigns on social media platforms.
+  The COVID-19 pandemic is one of the most significant challenges that Ontarians are facing. However, many citizens remain uncertain or misinformed about the measures necessary to contain this public health crisis. In order to guide public health policy, reduce the negative impacts of the pandemic, and improve public trust in the Conservative Party of Ontario, the party requires insight into the trends that surround awareness of COVID. To this end, we conducted a large-scale phone survey (using simulated data) to poll Ontarians on their personal habits regarding the COVID-19 pandemic. The survey was designed to extract information regarding the adherence of Ontario residents to current COVID-19 containment policies. We find that non-compliance with public health guidelines remains a significant obstacle to combating the pandemic. Our key findings suggest that misinformation, specifically that relating to social media use, are significant contributing factors towards these less than optimal compliance rates. We expect that the Conservative party and government can seek to reduce these levels of misinformation through the targeting of information campaigns on social media platforms.
 
 
 
@@ -684,8 +684,7 @@ my_data %>%
 
 - Government of Canada, 2020. "People who are at high risk for severe illness from COVID-19." Retrieved from: https://www.canada.ca/en/public-health/services/publications/diseases-conditions/people-high-risk-for-severe-illness-covid-19.html
 
-- H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York,
-  2016.
+- H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
   
 - Lee, Mie-Yun (2002). "Conducting Surveys and Focus Groups." Entrepreneur. Retried from: www.entrepreneur.com/article/55680. 
 
