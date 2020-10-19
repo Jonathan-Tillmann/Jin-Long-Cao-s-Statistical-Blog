@@ -7,6 +7,16 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#install.packages('brm')
+#install.packages('rstan')
+#install.packages('tidyverse')
+#install.packages('rtools')
+#install.packages('fastmatch')
+library(fastmatch)
+library(brms)
+library(rstan)
+library(tidyverse)
+gss <- read.csv("gss.csv")
 ```
 ## Executive Summary
 ## Introduction
@@ -29,6 +39,39 @@ hist(gss$age,
       col="cadetblue4",
       cex.main=0.75)
 ```
+
+
+```{r}
+gss %>% 
+  mutate(is_male = ifelse(sex=="Male", 0, 1))
+
+avg_hrs_worked_rank = fmatch(gss$average_hours_worked, c("NA", "Don't know", "0.1 to 29.9 hours", "30.0 to 40.0 hours", "40.1 to 50.0 hours", "50.1 hours and more"))
+
+income_family_rank = fmatch(gss$income_family, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
+
+
+logit_feeling <- glm(is_male ~ feelings_life, data = gss, family = "binomial")
+summary(my_logit)
+# log(p/(1-p)) = 0.02197 - 0.024172*feelings_life
+
+#Establishing the line for the logistic Regression
+xfeelings_life <- seq(0, 10, 0.01)
+yfeelings_life <- predict(logit_feeling, list(feelings_life = xfeelings_life),type="response")
+
+
+plot(gss$feelings_life, gss$is_male,
+     main="Logistic Regression on Female/ Male feeling about life", 
+     xlab="Feeling about life as a whole (Scale from 1-10)",
+     ylab="Female/ Male")
+lines(xfeelings_life, yfeelings_life)
+```
+
+
+
+
+
+
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
