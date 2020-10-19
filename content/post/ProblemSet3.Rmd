@@ -17,11 +17,22 @@ library(brms)
 library(rstan)
 library(tidyverse)
 gss <- read.csv("gss.csv")
+
 ```
 ## Executive Summary
 ## Introduction
 ## Data
 ## Discussion
+
+```{r}
+gss %>% 
+  mutate(is_male = ifelse(sex=="Male", 0, 1))
+
+avg_hrs_worked_rank = fmatch(gss$average_hours_worked, c("NA", "Don't know", "0.1 to 29.9 hours", "30.0 to 40.0 hours", "40.1 to 50.0 hours", "50.1 hours and more"))
+
+income_family_rank = fmatch(gss$income_family, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
+```
+
 
 ```{r cars}
 
@@ -42,14 +53,7 @@ hist(gss$age,
 
 
 ```{r}
-gss %>% 
-  mutate(is_male = ifelse(sex=="Male", 0, 1))
-
-avg_hrs_worked_rank = fmatch(gss$average_hours_worked, c("NA", "Don't know", "0.1 to 29.9 hours", "30.0 to 40.0 hours", "40.1 to 50.0 hours", "50.1 hours and more"))
-
-income_family_rank = fmatch(gss$income_family, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
-
-
+#If these graphs don't relate to our report, it is okay not to include
 logit_feeling <- glm(is_male ~ feelings_life, data = gss, family = "binomial")
 summary(my_logit)
 # log(p/(1-p)) = 0.02197 - 0.024172*feelings_life
@@ -64,6 +68,27 @@ plot(gss$feelings_life, gss$is_male,
      xlab="Feeling about life as a whole (Scale from 1-10)",
      ylab="Female/ Male")
 lines(xfeelings_life, yfeelings_life)
+
+
+#Boxplot on feeling about life vs sex
+gss %>%
+  ggplot(aes(sex, feelings_life)) +
+  geom_boxplot(colour = "black", fill = "cadetblue4") +
+  labs(x = "sex",
+       y = "Feeling about life (Scale from 1-10)",
+       title = "Boxplot on Male/ Female feeling about life")
+
+attach(gss)
+lmod <- lm(feelings_life~total_children)
+summary(lmod)
+
+#plot on feeling about life vs total number of children in household
+plot(gss$total_children, gss$feelings_life, 
+     main="How total number of children in household affect feeling about life", 
+     xlab="Total number of children",
+     ylab="Feeling about life as a whole (Scale from 1-10)")
+abline(lmod)
+detach(gss)
 ```
 
 
