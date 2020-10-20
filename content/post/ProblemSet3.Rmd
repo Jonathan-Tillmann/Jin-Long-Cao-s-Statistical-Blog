@@ -57,7 +57,7 @@ hist(gss$age,
 ```{r}
 #If these graphs don't relate to our report, it is okay not to include
 logit_feeling <- glm(is_male ~ feelings_life, data = gss, family = "binomial")
-summary(my_logit)
+summary(logit_feeling)
 # log(p/(1-p)) = 0.02197 - 0.024172*feelings_life
 
 #Establishing the line for the logistic Regression
@@ -113,6 +113,7 @@ bayesplot::mcmc_intervals(posterior)
 
 ```{r}
 #Logistic Regression model on sex depending on feeling about life, average hours worked and income.
+
 logit_sex <- glm(is_male ~ feelings_life + avg_hrs_worked_rank + income_respondent_rank, data = gss)
 summary(logit_sex)
 
@@ -121,6 +122,33 @@ summary(logit_sex)
 
 # So this basically tells us that on average have a higher feeling on life as a whole,
 # male works more hours on average and have a higher income
+
+#I am not really sure how to plot this, if no one does, we can just take it out
+plot(logit_sex)
+
+
+#plotting the variables separately 
+attach(gss)
+lmod_feelings_life <- lm(is_male~feelings_life)
+summary(lmod_feelings_life)
+
+lmod_avg_hrs_worked_rank <- lm(is_male~avg_hrs_worked_rank)
+summary(lmod_avg_hrs_worked_rank)
+
+lmod_income_respondent_rank <- lm(is_male~income_respondent_rank)
+summary(lmod_income_respondent_rank)
+
+
+plot(is_male ~ feelings_life)
+abline(lmod_feelings_life)
+
+plot(is_male ~ avg_hrs_worked_rank)
+abline(lmod_avg_hrs_worked_rank)
+
+plot(is_male ~ income_respondent_rank)
+abline(lmod_income_respondent_rank)
+
+detach(gss)
 ```
 
 
