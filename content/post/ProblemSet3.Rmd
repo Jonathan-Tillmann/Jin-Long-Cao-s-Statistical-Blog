@@ -31,6 +31,8 @@ gss %>%
 avg_hrs_worked_rank = fmatch(gss$average_hours_worked, c("NA", "Don't know", "0.1 to 29.9 hours", "30.0 to 40.0 hours", "40.1 to 50.0 hours", "50.1 hours and more"))
 
 income_family_rank = fmatch(gss$income_family, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
+
+income_respondent_rank = fmatch(gss$income_respondent, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
 ```
 
 
@@ -109,6 +111,17 @@ bayesplot::mcmc_intervals(posterior)
 ```
 
 
+```{r}
+#Logistic Regression model on sex depending on feeling about life, average hours worked and income.
+logit_sex <- glm(is_male ~ feelings_life + avg_hrs_worked_rank + income_respondent_rank, data = gss)
+summary(logit_sex)
+
+# x1 = feelings_life, x2 = avg_hrs_worked_rank, x3 = income_respondent_rank
+# log(p/(1-p)) = 0.02 - 0.01*x1 + 0.12*x2 + 0.04*x3
+
+# So this basically tells us that on average have a higher feeling on life as a whole,
+# male works more hours on average and have a higher income
+```
 
 
 
