@@ -91,6 +91,22 @@ abline(lmod)
 detach(gss)
 ```
 
+```{r}
+#Fitting Bayesian Model
+
+#Not sure if it is my computer but this took very long to run
+Bayesian_Model <- brm(formula = feelings_life~income_family, data = gss, seed = 666)
+summary(Bayesian_Model)
+
+mcmc_plot(Bayesian_Model)
+mcmc_plot(Bayesian_Model, type = "hist")
+
+#No Divergences to plot
+mcmc_plot(Bayesian_Model, type = "trace")
+
+posterior <- as.array(Bayesian_Model)
+bayesplot::mcmc_intervals(posterior)
+```
 
 
 
