@@ -53,6 +53,41 @@ hist(gss$age,
       cex.main=0.75)
 ```
 
+You can also embed plots, for example:
+```{r}
+gss2 <-gss
+gss2$sex<- ifelse(gss2$sex=="Male",1,0)
+```
+
+```{r}
+#Filter men/women into separate tables
+
+fem <- filter(gss2, sex == 0)
+men <- filter(gss2, sex == 1)
+
+```
+
+```{r}
+#Create Pie Chart of Female Occupations With Percentages
+focc_table<-table(fem$occupation)
+labels=c("Business and Finance", "Health", NA, "Management", "Sciences", "Resources/Agriculture", "Art, Culture, Recreation", "Social Work, Education, Law", "Manufacturing and Ultilities", "Sales or Service", "Trades, Transport", "Uncoded")
+pct <- round(focc_table/sum(focc_table)*100)
+occu_lbl<- paste(labels, pct)
+occu_lbl <- paste(occu_lbl,"%",sep="")
+pie(focc_table,labels = occu_lbl, col=rainbow(length(occu_lbl)), main="Careers Proportions of Female Respondents", radius = 1.0)
+
+```
+```{r}
+#Create Pie Chart of Male Occupations With Percentages
+mocc_table<-table(men$occupation)
+labels=c("Business and Finance", "Health", NA, "Management", "Sciences", "Resources/Agriculture", "Art, Culture, Recreation", "Social Work, Education, Law", "Manufacturing and Ultilities", "Sales or Service", "Trades, Transport", "Uncoded")
+pctm <- round(mocc_table/sum(mocc_table)*100)
+moccu_lbl<- paste(labels, pctm)
+moccu_lbl <- paste(moccu_lbl,"%",sep="")
+pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Careers Proportions of Male Respondents")
+
+```
+
 
 ```{r}
 #If these graphs don't relate to our report, it is okay not to include
