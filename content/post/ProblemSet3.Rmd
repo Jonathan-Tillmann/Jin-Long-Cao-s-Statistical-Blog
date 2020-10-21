@@ -112,14 +112,6 @@ gss %>%
        title="Figure 2.1: Respondent's Income")
 
 gss %>% 
-  ggplot(aes(fill=sex, x=marital_status)) +
-  geom_bar(color = "black")+
-  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
-  labs(x="Respondent's Marital Status",
-       y="Frequency",
-       title="Figure 2.2: Respondent's Marital Status")
-
-gss %>% 
   ggplot(aes(fill=sex, x=average_hours_worked)) +
   geom_bar(color = "black")+
   theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
