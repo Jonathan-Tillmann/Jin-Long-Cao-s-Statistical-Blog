@@ -185,3 +185,42 @@ We fit our model using the built-in functions of R.
   A second topic of interest for future studies is the gender difference in occupation sectors. Studies conducted should target younger individuals in high school and elementary and ask questions on which job sectors interest them the most and which they would avoid. The data should be divided by gender and analyzed for job occupation preference. These studies could inspire further research into why specific occupation sectors have differing gender demographics. 
   
 ## References
+
+- Bourgeault, Ivy Lynn. (2018). "Women's work across every aspect of healthcare is largely invisible."  
+   Evidence Network. Retrieved from: 
+   http://evidencenetwork.ca/womens-work-across-every-aspect-of-healthcare-is-largely-invisible/. 
+
+- Gerster, Jane, (2019). "How Much Did Feminist Trudeau Move the Needle on Gender Equality?" Global   
+   News. Retrieved from: https://globalnews.ca/news/5887685/trudeau-feminism-equality/.  
+
+- JJ Allaire et al. (2020). rmarkdown: Dynamic Documents for R. R package version 2.4. Retrieved from:
+   https://rmarkdown.rstudio.com.
+
+- Moyser, Barbara. (2017). "Women and Paid Work." Statistics Canada. Retrieved from:   
+   https://www150.statcan.gc.ca/n1/pub/89-503-x/2015001/article/14694-eng.htm. 
+
+- OECD. (2017). "The Pursuit of Gender Equality: An Uphill Battle." OECD Publishing, 
+   Paris. Retrieved from: http://dx.doi.org/10.1787/9789264281318-en.
+
+- R Core Team (2020). R: A language and environment for statistical computing. R
+  Foundation for Statistical Computing, Vienna, Austria. URL
+  https://www.R-project.org/.
+
+- RStudio Team (2020). RStudio: Integrated Development for R. RStudio, PBC, Boston, MA Retrieved   
+   from: http://www.rstudio.com/. 
+
+- Simon Urbanek. (2017). fastmatch: Fast match() function. R package version 1.1-0.
+   Retrieved from: https://CRAN.R-project.org/package=fastmatch. 
+
+- Statistics Canada. (2020). "Canadian Income Survey, 2018." Retrieved from: 
+   https://www150.statcan.gc.ca/n1/daily-quotidien/200224/dq200224a-eng.htm. 
+
+- Wickham et al. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686,
+   Retrieved from: https://doi.org/10.21105/joss.01686. 
+
+- Wickham, Hadley. (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York.
+
+- Wooton, Barbara. (1997). "Gender differences in occupational employment in occupational employment." 
+   Monthly Labor Review 120(4):15-24. Retrieved from: https://stats.bls.gov/mlr/1997/04/art2full.pdf. 
+
+
