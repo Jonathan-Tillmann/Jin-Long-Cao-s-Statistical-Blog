@@ -149,6 +149,48 @@ We fit our model using the built-in functions of R.
 ![](model.png)
 
 The logistic regression model above is the result of fitting the model on the GSS data with the dependent variables listed above.
+``{r}
+#Generate table of sex by education
+table<-table(gss$sex, gss$education)
+#Calculate total of respondents per sex
+totf = table[1] + table[3] + table[5] + table[7] + table[9] + table[11] + table[13] + table[15]  
+totm = table[2] + table[4] + table[6] + table[8] + table[10] + table[12] + table[14] + table[16] 
+#Set tables to percentages
+#Female
+table[1] = (table[1]/totf)*100
+table[3] = (table[1]/totf)*100
+table[5] = (table[1]/totf)*100
+table[7] = (table[1]/totf)*100
+table[9] = (table[1]/totf)*100
+table[11] = (table[1]/totf)*100
+table[13] = (table[1]/totf)*100
+table[15] = (table[1]/totf)*100
+#Male
+table[2] = (table[1]/totm)*100
+table[4] = (table[1]/totm)*100
+table[6] = (table[1]/totm)*100
+table[8] = (table[1]/totm)*100
+table[10] = (table[1]/totm)*100
+table[12] = (table[1]/totm)*100
+table[14] = (table[1]/totm)*100
+table[16] = (table[1]/totm)*100
+
+#Set Table column names
+colnames(table) <-c("BA/B.Sc.", "College Graduate", "HS Graduate", "Less than HS", "NA", "Trades Cert", "UBB", "UAB")
+
+#Create grouped bar chart
+barplot(table, 
+        col=c("cadetblue3","cadetblue4") , 
+        border="white", 
+        font.axis=1, 
+        beside=T, 
+        legend=c("Female", "Male"),
+        main="Figure 4.1 Education Levels of Respondents by Sex",
+        ylab="Percentage of Respondents",
+        xlab="Education Level", 
+        font.lab=2)
+```
+Figure 4.1 suggests that sex related educational level differences occur in respondents. In particular, male respondents are more likely to be only highschool (HS) graduates, not complete HS, learn a trade or attain a degree higher than a bachelor's while at university (UAB). Conversely, female respondents are more likely to graduate college or university with a bachelor's degree, or a certificate or diploma lower than a bachelor's from a university (UBB). 
 
 ## Discussion
 
