@@ -64,8 +64,6 @@ gss2 <-gss
 gss2$sex<- ifelse(gss2$sex=="Male",1,0)
 ```
 
-  
-  In figures Figure 2.1 and 2.2, we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
 
 ```{r female_occupation, echo=FALSE}
 
@@ -94,7 +92,7 @@ moccu_lbl <- paste(moccu_lbl,"%",sep="")
 pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Figure 2.2: Careers Proportions of Male Respondents")
 
 ```
-In figures Figure 1.1 and 1.2, we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
+In figures Figure 2.1 and 2.2, we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
 
 
 
