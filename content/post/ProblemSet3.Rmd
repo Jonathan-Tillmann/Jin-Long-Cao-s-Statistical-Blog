@@ -111,6 +111,34 @@ pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Careers
 ```
 
 
+```{r}
+gss %>% 
+  ggplot(aes(fill=sex, x=income_respondent)) +
+  geom_bar()+
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
+  labs(x="Respondent's Income",
+       y="Frequency",
+       title="Respondent's Income")
+
+gss %>% 
+  ggplot(aes(fill=sex, x=marital_status)) +
+  geom_bar()+
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
+  labs(x="Respondent's Marital Status",
+       y="Frequency",
+       title="Respondent's Marital Status")
+
+gss %>% 
+  ggplot(aes(fill=sex, x=average_hours_worked)) +
+  geom_bar()+
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
+  labs(x="Respondent's Average Hours Worked",
+       y="Frequency",
+       title="Respondent's Average Hours Worked")
+
+```
+
+
 ## Model
 
   A logistic model was used to model the data for our analysis of how sex affects one's socioeconomic status. Logistic models are generally used when trying to model the associations found between various independent variables and binary categorical dependent variables. Mathematically this takes the form of  we can express the probability 'p' as a logarithmic function of the various dependent variables.
@@ -232,34 +260,6 @@ abline(lmod_income_respondent_rank)
 detach(gss)
 ```
 
-
-
-```{r}
-gss %>% 
-  ggplot(aes(fill=sex, x=income_respondent)) +
-  geom_bar()+
-  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
-  labs(x="Respondent's Income",
-       y="Frequency",
-       title="Respondent's Income")
-
-gss %>% 
-  ggplot(aes(fill=sex, x=marital_status)) +
-  geom_bar()+
-  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
-  labs(x="Respondent's marital status",
-       y="Frequency",
-       title="Respondent's marital status")
-
-gss %>% 
-  ggplot(aes(fill=sex, x=average_hours_worked)) +
-  geom_bar()+
-  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
-  labs(x="Respondent's average hours worked",
-       y="Frequency",
-       title="Respondent's average hours worked")
-
-```
 
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
