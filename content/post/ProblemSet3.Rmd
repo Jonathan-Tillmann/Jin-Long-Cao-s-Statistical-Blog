@@ -130,7 +130,11 @@ We fit our model using the built-in functions of R.
   We eliminated linear models as a possibility as they require that our response variable (the individual's sex) and the independent variables (varying socioeconomic factors) are linearly related. This also requires that the response variable be non-categorical which is clearly not the case for sex.
 
   Bayesian models require that we have information about the approximate distribution of the data (which we refer to as a prior) for the model. They are also best used when the prior is informative in some way as to the distribution that models the data. However since there are no clear trends from the GSS we cannot assume anything more than a uniform probability distribution for the distributions which is a non-informative prior. Thus, we do not use a Bayesian model.
-
+```{r}
+mod<-glm(gss$sex~income_respondent_rank+avg_hours_worked_rank+gss$occupation+gss$education, family="binomial", na.action=na.omit)
+summary(mod)
+plot(mod)
+```
 ## Discussion
 
 ```{r}
