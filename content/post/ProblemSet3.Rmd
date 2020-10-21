@@ -100,6 +100,8 @@ occu_lbl <- paste(occu_lbl,"%",sep="")
 pie(focc_table,labels = occu_lbl, col=rainbow(length(occu_lbl)), main="Careers Proportions of Female Respondents", radius = 1.0)
 
 ```
+In figures ?????? and ?????? we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
+
 ```{r male_occupation, echo=FALSE}
 #Create Pie Chart of Male Occupations With Percentages
 mocc_table<-table(men$occupation)
