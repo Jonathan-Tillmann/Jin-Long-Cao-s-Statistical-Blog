@@ -123,35 +123,21 @@ gss %>%
   Figure 3.3 modeling the distribution of respondents' individual income demonstrates a left skew leaning towards a low individual income in contrast to figure (replace with figure number of respondents' family income). This can be explained due to the overrepresentation of elderly individuals in retirement age that cause lower income responses to make up the majority while maintaining a high family income.
 
 ```{r education graphs, echo=FALSE}
-
 #Generate table of sex by education
-table<-table(gss$sex, gss$education)
-#Calculate total of respondents per sex
-totf = table[1] + table[3] + table[5] + table[7] + table[9] + table[11] + table[13] + table[15]  
-totm = table[2] + table[4] + table[6] + table[8] + table[10] + table[12] + table[14] + table[16] 
-#Set tables to percentages
-#Female
-table[1] = (table[1]/totf)*100
-table[3] = (table[3]/totf)*100
-table[5] = (table[5]/totf)*100
-table[7] = (table[7]/totf)*100
-table[9] = (table[9]/totf)*100
-table[11] = (table[11]/totf)*100
-table[13] = (table[13]/totf)*100
-table[15] = (table[15]/totf)*100
-#Male
-table[2] = (table[2]/totm)*100
-table[4] = (table[4]/totm)*100
-table[6] = (table[6]/totm)*100
-table[8] = (table[8]/totm)*100
-table[10] = (table[10]/totm)*100
-table[12] = (table[12]/totm)*100
-table[14] = (table[14]/totm)*100
-table[16] = (table[16]/totm)*100
+gss3<- gss
+gss3$sex<- ifelse(gss3$sex=="Male",1,0)
+fem <- filter(gss3, sex == 0)
+men <- filter(gss3, sex == 1)
+men<-table(men$sex, men$education)
+fem<-table(fem$sex, fem$education)
+fem<-prop.table(fem)
+men<-prop.table(men)
 
+table <-rbind(fem,men)
 
 #Set Table column names
-colnames(table) <-c("BA/B.Sc.", "College Graduate", "HS Graduate", "Less than HS", "NA", "Trades Cert", "UBB", "UAB")
+
+colnames(table) <-c("BA/B.Sc.", "College", "HS Grad", " < HS", "Trades", "UBB", "UAB")
 
 #Create grouped bar chart
 barplot(table, 
@@ -163,10 +149,10 @@ barplot(table,
         main="Figure 4.1 Education Levels of Respondents by Sex",
         ylab="Percentage of Respondents",
         xlab="Education Level", 
-        font.lab=2)
+        font.lab=1)
 ```
 
-Figure 4.1 suggests that sex related educational level differences occur in respondents. In particular, male respondents are more likely to be only highschool (HS) graduates, not complete HS, learn a trade or attain a degree higher than a bachelor's while at university (UAB). Conversely, female respondents are more likely to graduate college or university with a bachelor's degree, or a certificate or diploma lower than a bachelor's from a university (UBB). 
+Figure 4.1 suggests that sex related educational level differences occur in respondents. In particular, male respondents are more likely to be only highschool (HS) graduates, not complete HS (<HS), learn a trade (Trades) or attain a degree higher than a bachelor's while at university (UAB). Conversely, female respondents are more likely to graduate college or university with a bachelor's degree (BA/B.Sc), or a certificate or diploma lower than a bachelor's from a university (UBB). 
 
 
 ## Model
