@@ -148,7 +148,9 @@ We fit our model using the built-in functions of R.
   
 ## Results
 
-![alt text here](model.png)
+![](model.png)
+
+The logistic regression model above is the result of fitting the model on the GSS data with the dependent variables listed above.
 
 ## Discussion
 
@@ -175,7 +177,14 @@ We fit our model using the built-in functions of R.
   Promising next steps for further exploration is focusing on the gender wage gap highlighted by the results of our data analysis. Surveys conducted focusing on this topic should gather data on specific job occupations and record hours worked weekly and respondent income as continuous variables to be compared between genders. This will allow researchers to match hours worked and occupation between genders to compare individual income without confounding variables. These studies will also prevent maternal leave from influencing individual incomes and better elucidate if a true wage gap exists between two individuals with the same occupation but differing genders. 
 
   A second topic of interest for future studies is the gender difference in occupation sectors. Studies conducted should target younger individuals in high school and elementary and ask questions on which job sectors interest them the most and which they would avoid. The data should be divided by gender and analyzed for job occupation preference. These studies could inspire further research into why specific occupation sectors have differing gender demographics. 
-  
+
+
+## Appendix
+
+*The code used in this report's analysis as well as the gss scripts necessary to clean the data can also be found at the GitHub tab linked on the blog header as well as at the following link: https://github.com/JinLong-Cao/Jin-Long-Cao-s-Statistical-Blog/tree/master/content/post*
+
+*The gss.csv required for this analysis can be found at the following link http://www.chass.utoronto.ca/ although it is only accessible to UofT faculty, students, and staff*
+
 ## References
 
 - Bourgeault, Ivy Lynn. (2018). "Women's work across every aspect of healthcare is largely invisible."  
