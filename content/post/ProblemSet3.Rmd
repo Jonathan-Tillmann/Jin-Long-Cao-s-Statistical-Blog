@@ -7,14 +7,10 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-#install.packages('brm')
-#install.packages('rstan')
 #install.packages('tidyverse')
 #install.packages('rtools')
 #install.packages('fastmatch')
 library(fastmatch)
-library(brms)
-library(rstan)
 library(tidyverse)
 gss <- read.csv("gss.csv")
 
@@ -126,30 +122,7 @@ gss %>%
 
   Figure 3.3 modeling the distribution of respondents' individual income demonstrates a left skew leaning towards a low individual income in contrast to figure (replace with figure number of respondents' family income). This can be explained due to the overrepresentation of elderly individuals in retirement age that cause lower income responses to make up the majority while maintaining a high family income.
 
-## Model
-
-  A logistic model was used to model the data for our analysis of how sex affects one's socioeconomic status. Logistic models are generally used when trying to model the associations found between various independent variables and binary categorical dependent variables. Mathematically this takes the form of  we can express the probability 'p' that an individual is male as a logarithmic function of the various dependent variables.
-
-$$log(\frac{p}{1 - p}) = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_kx_k$$
-
-  This model is appropriate for our analysis since sex is a categorical variable and we would like to see how given information regarding an individual's socioeconomic conditions, if there is any bias towards their predicted sex. Assuming that there is little to no gender inequality, we expect to find that sex and socioeconomic status are independent. However, if we find that some socioeconomic factors are linked to sex, then we can infer that there is some element of bias within society that skews towards that result.
-
-  For the purposes of our model, we chose several dependent variables such as income, educational attainment, and occupation that have historically been segregated strongly by sex. This data is categorical as a result of the survey methodology which was kept categorical for ease of aggregation. This unfortunately leads to some data points such as income (which would normally be quite continuous) as becoming categorical income ranges.
-
-We fit our model using the built-in functions of R.
-
-  Other potential models were considered for our analysis such as a Bayesian model as well as a classic linear model, but these were eliminated based on their weaknesses in appropriately modelling our data.
-
-  We eliminated linear models as a possibility as they require that our response variable (the individual's sex) and the independent variables (varying socioeconomic factors) are linearly related. This also requires that the response variable be non-categorical which is clearly not the case for sex.
-
-  Bayesian models require that we have information about the approximate distribution of the data (which we refer to as a prior) for the model. They are also best used when the prior is informative in some way as to the distribution that models the data. However since there are no clear trends from the GSS we cannot assume anything more than a uniform probability distribution for the distributions which is a non-informative prior. Thus, we do not use a Bayesian model.
-  
-## Results
-
-![](model.png)
-
-The logistic regression model above is the result of fitting the model on the GSS data with the dependent variables listed above.
-``{r}
+```{r education graphs, echo=FALSE}
 #Generate table of sex by education
 table<-table(gss$sex, gss$education)
 #Calculate total of respondents per sex
@@ -190,7 +163,33 @@ barplot(table,
         xlab="Education Level", 
         font.lab=2)
 ```
+
 Figure 4.1 suggests that sex related educational level differences occur in respondents. In particular, male respondents are more likely to be only highschool (HS) graduates, not complete HS, learn a trade or attain a degree higher than a bachelor's while at university (UAB). Conversely, female respondents are more likely to graduate college or university with a bachelor's degree, or a certificate or diploma lower than a bachelor's from a university (UBB). 
+
+
+## Model
+
+  A logistic model was used to model the data for our analysis of how sex affects one's socioeconomic status. Logistic models are generally used when trying to model the associations found between various independent variables and binary categorical dependent variables. Mathematically this takes the form of  we can express the probability 'p' that an individual is male as a logarithmic function of the various dependent variables.
+
+$$log(\frac{p}{1 - p}) = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_kx_k$$
+
+  This model is appropriate for our analysis since sex is a categorical variable and we would like to see how given information regarding an individual's socioeconomic conditions, if there is any bias towards their predicted sex. Assuming that there is little to no gender inequality, we expect to find that sex and socioeconomic status are independent. However, if we find that some socioeconomic factors are linked to sex, then we can infer that there is some element of bias within society that skews towards that result.
+
+  For the purposes of our model, we chose several dependent variables such as income, educational attainment, and occupation that have historically been segregated strongly by sex. This data is categorical as a result of the survey methodology which was kept categorical for ease of aggregation. This unfortunately leads to some data points such as income (which would normally be quite continuous) as becoming categorical income ranges.
+
+We fit our model using the built-in functions of R.
+
+  Other potential models were considered for our analysis such as a Bayesian model as well as a classic linear model, but these were eliminated based on their weaknesses in appropriately modelling our data.
+
+  We eliminated linear models as a possibility as they require that our response variable (the individual's sex) and the independent variables (varying socioeconomic factors) are linearly related. This also requires that the response variable be non-categorical which is clearly not the case for sex.
+
+  Bayesian models require that we have information about the approximate distribution of the data (which we refer to as a prior) for the model. They are also best used when the prior is informative in some way as to the distribution that models the data. However since there are no clear trends from the GSS we cannot assume anything more than a uniform probability distribution for the distributions which is a non-informative prior. Thus, we do not use a Bayesian model.
+  
+## Results
+
+![](model.png)
+
+The logistic regression model above is the result of fitting the model on the GSS data with the dependent variables listed above.
 
 ## Discussion
 
