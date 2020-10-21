@@ -1,5 +1,5 @@
 ---
-title: "Gender Inequality in Canada and How We should "
+title: "Gender Inequality in Canada and How Women's Participation in the Workforce can Change That"
 author: "John Cao, Brian Diep, Jonathan Tillmann, Tanya Woloshansky"
 date: "19/10/2020"
 output: html_document
@@ -21,19 +21,19 @@ gss <- read.csv("gss.csv")
 ```
 ## Abstract
 
-   Inequality and sexism have historically shaped Canadian society and the lives of the many individuals who comprise it. Although contemporary Canada ranks well in terms of gender equality, there is still room for much improvement. We can quantify gender inequality by measuring the socioeconomic conditions of various men and women. Through our analysis of data gathered from the Canadian General Social Survey, our findings suggest that gender inequality persists within Canadian society and particularly in [plug results].
+  Inequality and sexism have historically shaped Canadian society and the lives of the many individuals who comprise it. Although contemporary Canada ranks well in terms of gender equality, there is still room for much improvement. We can quantify gender inequality by measuring the socioeconomic conditions of various men and women. Through our analysis of data gathered from the Canadian General Social Survey, our findings suggest that gender inequality persists within Canadian society with a major factor being the unequal participation of women in the workforce and within different occupations.
    
 ## Introduction
 
   Canada is a country that prides itself on having a high level of social equality between men and women. This is a justified belief in many regards, Canada ranks well among OECD countries in terms of gender equality in several key metrics such as workforce participation and higher education attainment (OECD, 2017). In more recent years, the federal government under Justin Trudeau has also positioned himself and his cabinet as a force to promote feminism within Canada as well as abroad (Gerster, 2019). However, this only emphasizes the fact that we must reflect upon the status of gender equality within Canada, especially when we continue to see shortcomings and inequality manifesting itself within different sectors of society. The following report seeks to provide an analysis of Canadian gender inequality by drawing upon data from the Canadian General Social Survey (GSS). We focus on socioeconomic indicators such as employment statistics and educational attainment to find correlations between an individual's sex and their quality of life. Based on our findings we propose a few areas of improvement that are necessary to close the gender gap in Canada.
 
-## Data
+## Data - Methodology
 
   The dataset we used for our analysis came from responses to Statistics Canada's General Social Survey (GSS). The survey currently has six themes that are cycled through approximately every five years. We decided to look at the survey conducted in 2017 on the theme of Family. The survey was conducted via telephone, specifically by random digit dialing in which phone numbers are generated randomly based on in-use area codes (the numbers generated were specifically for landlines). Respondents were assured confidentiality under the authority of the Statistics Act. Interviews were given until reaching a sample size of 25000 respondents. The dataset we specifically used was generously provided by UofT Prof. Alexander and had 20602 respondents after incomplete interviews were removed. 
 
   The target population of the study were citizens in Canada aged fifteen-plus living in private households. The sampling frame of the study was the list of randomly generated phone numbers. The telephone interviews were carried out with Computer Assisted Telephone Interviewing to lower costs. The random digit dialing method carried out allowed Statistics Canada to reach unlisted phone numbers, avoiding the problem of missing the demographic when using pre-existing telephone lists. However, their data collection method excludes cell phone only households and those without landlines. Therefore, certain demographics are less likely to be sampled like younger homeowners and lower income households respectively. The survey also overrepresented elderly citizens that are in retirement age due to the nature of having more spare time than a working individual and more willing to answer a 45 minute interview.  Conducting the survey via telephone also lowered response rates compared to a face-to-face interview and limited the questions that could be asked. 
 
-Figure Data (Subsection specific for doc, dont include subsection title in report)
+## Data - Plots
 
 ```{r Age Groups, echo=FALSE}
 
@@ -97,7 +97,8 @@ occu_lbl <- paste(occu_lbl,"%",sep="")
 pie(focc_table,labels = occu_lbl, col=rainbow(length(occu_lbl)), main="Careers Proportions of Female Respondents", radius = 1.0)
 
 ```
-In figures ?????? and ?????? we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
+  
+  In figures ?????? and ?????? we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
 
 ```{r male_occupation, echo=FALSE}
 #Create Pie Chart of Male Occupations With Percentages
@@ -141,9 +142,9 @@ gss %>%
 
 ## Model
 
-  A logistic model was used to model the data for our analysis of how sex affects one's socioeconomic status. Logistic models are generally used when trying to model the associations found between various independent variables and binary categorical dependent variables. Mathematically this takes the form of  we can express the probability 'p' as a logarithmic function of the various dependent variables.
+  A logistic model was used to model the data for our analysis of how sex affects one's socioeconomic status. Logistic models are generally used when trying to model the associations found between various independent variables and binary categorical dependent variables. Mathematically this takes the form of  we can express the probability 'p' that an individual is male as a logarithmic function of the various dependent variables.
 
-![alt text here](model.png)
+$$log(\frac{p}{1 - p}) = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_kx_k$$
 
   This model is appropriate for our analysis since sex is a categorical variable and we would like to see how given information regarding an individual's socioeconomic conditions, if there is any bias towards their predicted sex. Assuming that there is little to no gender inequality, we expect to find that sex and socioeconomic status are independent. However, if we find that some socioeconomic factors are linked to sex, then we can infer that there is some element of bias within society that skews towards that result.
 
@@ -159,6 +160,7 @@ We fit our model using the built-in functions of R.
   
 ## Results
 
+![alt text here](model.png)
 
 ## Discussion
 
@@ -185,3 +187,5 @@ We fit our model using the built-in functions of R.
   Promising next steps for further exploration is focusing on the gender wage gap highlighted by the results of our data analysis. Surveys conducted focusing on this topic should gather data on specific job occupations and record hours worked weekly and respondent income as continuous variables to be compared between genders. This will allow researchers to match hours worked and occupation between genders to compare individual income without confounding variables. These studies will also prevent maternal leave from influencing individual incomes and better elucidate if a true wage gap exists between two individuals with the same occupation but differing genders. 
 
   A second topic of interest for future studies is the gender difference in occupation sectors. Studies conducted should target younger individuals in high school and elementary and ask questions on which job sectors interest them the most and which they would avoid. The data should be divided by gender and analyzed for job occupation preference. These studies could inspire further research into why specific occupation sectors have differing gender demographics. 
+  
+## References
