@@ -106,7 +106,7 @@ pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Figure 
 gss %>% 
   ggplot(aes(fill=sex, x=income_respondent)) +
   geom_bar(color = "black")+
-  theme(axis.text.x=element_text(angle=90)) +
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
   labs(x="Respondent's Income",
        y="Frequency",
        title="Figure 2.1: Respondent's Income")
