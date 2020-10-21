@@ -2,7 +2,7 @@
 title: "Gender Inequality in Canada and How Women's Participation in the Workforce can Change That"
 author: "John Cao, Brian Diep, Jonathan Tillmann, Tanya Woloshansky"
 date: "19/10/2020"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -65,7 +65,7 @@ gss2$sex<- ifelse(gss2$sex=="Male",1,0)
 ```
 
   
-  In figures Figure 1.1 and 1.2, we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
+  In figures Figure 2.1 and 2.2, we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
 
 ```{r female_occupation, echo=FALSE}
 
@@ -80,7 +80,7 @@ labels=c("Business and Finance", "Health", NA, "Management", "Sciences", "Resour
 pct <- round(focc_table/sum(focc_table)*100)
 occu_lbl<- paste(labels, pct)
 occu_lbl <- paste(occu_lbl,"%",sep="")
-pie(focc_table,labels = occu_lbl, col=rainbow(length(occu_lbl)), main="Figure 1.1: Careers Proportions of Female Respondents", radius = 1.0)
+pie(focc_table,labels = occu_lbl, col=rainbow(length(occu_lbl)), main="Figure 2.1: Careers Proportions of Female Respondents", radius = 1.0)
 
 ```
 
@@ -91,7 +91,7 @@ labels=c("Business and Finance", "Health", NA, "Management", "Sciences", "Resour
 pctm <- round(mocc_table/sum(mocc_table)*100)
 moccu_lbl<- paste(labels, pctm)
 moccu_lbl <- paste(moccu_lbl,"%",sep="")
-pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Figure 1.2: Careers Proportions of Male Respondents")
+pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Figure 2.2: Careers Proportions of Male Respondents")
 
 ```
 In figures Figure 1.1 and 1.2, we can see the occupation demographics for male and female respondents respectively. Statistics Canada grouped occupations into sectors and we used pie charts to easily display the differences in occupation sector percentages by gender.
@@ -100,12 +100,12 @@ In figures Figure 1.1 and 1.2, we can see the occupation demographics for male a
 
 ```{r, echo=FALSE}
 gss %>% 
-  ggplot(aes(fill=sex, x=income_respondent)) +
+  ggplot(aes(fill=sex, x=income_family)) +
   geom_bar(color = "black")+
-  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
-  labs(x="Respondent's Income",
+  theme(axis.text.x=element_text(angle=90)) +
+  labs(x="Family's Income",
        y="Frequency",
-       title="Figure 2.1: Respondent's Income")
+       title="Figure 3.1: Family's Income")
 
 gss %>% 
   ggplot(aes(fill=sex, x=average_hours_worked)) +
@@ -113,28 +113,20 @@ gss %>%
   theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
   labs(x="Respondent's Average Hours Worked",
        y="Frequency",
-       title="Figure 2.3: Respondent's Average Hours Worked")
-
+       title="Figure 3.2: Respondent's Average Hours Worked")
 
 gss %>% 
-  ggplot(aes(x=income_respondent)) +
-  geom_bar(fill = "cadetblue4")+
-  theme(axis.text.x=element_text(angle=90)) +
+  ggplot(aes(fill=sex, x=income_respondent)) +
+  geom_bar(color = "black")+
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
   labs(x="Respondent's Income",
        y="Frequency",
-       title="Figure 2.4: Respondent's Income")
-
-gss %>% 
-  ggplot(aes(x=income_family)) +
-  geom_bar(fill = "cadetblue4")+
-  theme(axis.text.x=element_text(angle=90)) +
-  labs(x="Family's Income",
-       y="Frequency",
-       title="Figure 2.5: Family's Income")
+       title="Figure 3.3: Respondent's Income")
 ```
-  Figure 2.5 showcasing the distribution of respondents' family income demonstrates non-coverage of lower income households lacking a landline. The median income of a family after taxes in Canada is $61 400 (Statistics Canada 2020), however our figure shows a significant portion of respondents reporting family incomes of over $125 000. 
 
-  Figure 2.4 modeling the distribution of respondents' individual income demonstrates a left skew leaning towards a low individual income in contrast to figure (replace with figure number of respondents' family income). This can be explained due to the overrepresentation of elderly individuals in retirement age that cause lower income responses to make up the majority while maintaining a high family income.
+  Figure 3.1 showcasing the distribution of respondents' family income demonstrates non-coverage of lower income households lacking a landline. The median income of a family after taxes in Canada is $61 400 (Statistics Canada 2020), however our figure shows a significant portion of respondents reporting family incomes of over $125 000. 
+
+  Figure 3.3 modeling the distribution of respondents' individual income demonstrates a left skew leaning towards a low individual income in contrast to figure (replace with figure number of respondents' family income). This can be explained due to the overrepresentation of elderly individuals in retirement age that cause lower income responses to make up the majority while maintaining a high family income.
 
 ## Model
 
