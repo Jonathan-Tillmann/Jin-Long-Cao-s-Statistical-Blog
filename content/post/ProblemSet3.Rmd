@@ -114,15 +114,15 @@ pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Careers
 ```{r}
 gss %>% 
   ggplot(aes(fill=sex, x=income_respondent)) +
-  geom_bar()+
-  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
+  geom_bar(color = "black")+
+  theme(axis.text.x=element_text(angle=90)) +
   labs(x="Respondent's Income",
        y="Frequency",
        title="Respondent's Income")
 
 gss %>% 
   ggplot(aes(fill=sex, x=marital_status)) +
-  geom_bar()+
+  geom_bar(color = "black")+
   theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
   labs(x="Respondent's Marital Status",
        y="Frequency",
@@ -130,7 +130,7 @@ gss %>%
 
 gss %>% 
   ggplot(aes(fill=sex, x=average_hours_worked)) +
-  geom_bar()+
+  geom_bar(color = "black")+
   theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
   labs(x="Respondent's Average Hours Worked",
        y="Frequency",
