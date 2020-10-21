@@ -118,8 +118,7 @@ pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Careers
 
   A logistic model was used to model the data for our analysis of how sex affects one's socioeconomic status. Logistic models are generally used when trying to model the associations found between various independent variables and binary categorical dependent variables. Mathematically this takes the form of  we can express the probability 'p' as a logarithmic function of the various dependent variables.
 
-equation for log(p/ 1-p) = beta0 + beta1x1 + beta2x2 .
-where p is the probability of the individual being male? idk
+![alt text here](model.png)
 
   This model is appropriate for our analysis since sex is a categorical variable and we would like to see how given information regarding an individual's socioeconomic conditions, if there is any bias towards their predicted sex. Assuming that there is little to no gender inequality, we expect to find that sex and socioeconomic status are independent. However, if we find that some socioeconomic factors are linked to sex, then we can infer that there is some element of bias within society that skews towards that result.
 
