@@ -1,7 +1,7 @@
 ---
 title: "Problem Set 3"
 author: "John Cao, Brian Diep, Jonathan Tillmann, Tanya Woloshansky"
-date: "16/10/2020"
+date: "19/10/2020"
 output: html_document
 ---
 
@@ -19,12 +19,39 @@ library(tidyverse)
 gss <- read.csv("gss.csv")
 
 ```
-## Executive Summary
-## Introduction
-## Data
-## Discussion
+## Abstract
 
-```{r}
+   Inequality and sexism have historically shaped Canadian society and the lives of the many individuals who comprise it. Although contemporary Canada ranks well in terms of gender equality, there is still room for much improvement. We can quantify gender inequality by measuring the socioeconomic conditions of various men and women. Through our analysis of data gathered from the Canadian General Social Survey, our findings suggest that gender inequality persists within Canadian society and particularly in [plug results].
+   
+## Introduction
+
+  Canada is a country that prides itself on having a high level of social equality between men and women. This is a justified belief in many regards, Canada ranks well among OECD countries in terms of gender equality in several key metrics such as workforce participation and higher education attainment (OECD, 2017). In more recent years, the federal government under Justin Trudeau has also positioned himself and his cabinet as a force to promote feminism within Canada as well as abroad (Gerster, 2019). However, this only emphasizes the fact that we must reflect upon the status of gender equality within Canada, especially when we continue to see shortcomings and inequality manifesting itself within different sectors of society. The following report seeks to provide an analysis of Canadian gender inequality by drawing upon data from the Canadian General Social Survey (GSS). We focus on socioeconomic indicators such as employment statistics and educational attainment to find correlations between an individual's sex and their quality of life. Based on our findings we propose a few areas of improvement that are necessary to close the gender gap in Canada.
+
+## Data
+
+  The dataset we used for our analysis came from responses to Statistics Canada's General Social Survey (GSS). The survey currently has six themes that are cycled through approximately every five years. We decided to look at the survey conducted in 2017 on the theme of Family. The survey was conducted via telephone, specifically by random digit dialing in which phone numbers are generated randomly based on in-use area codes (the numbers generated were specifically for landlines). Respondents were assured confidentiality under the authority of the Statistics Act. Interviews were given until reaching a sample size of 25000 respondents. The dataset we specifically used was generously provided by UofT Prof. Alexander and had 20602 respondents after incomplete interviews were removed. 
+
+  The target population of the study were citizens in Canada aged fifteen-plus living in private households. The sampling frame of the study was the list of randomly generated phone numbers. The telephone interviews were carried out with Computer Assisted Telephone Interviewing to lower costs. The random digit dialing method carried out allowed Statistics Canada to reach unlisted phone numbers, avoiding the problem of missing the demographic when using pre-existing telephone lists. However, their data collection method excludes cell phone only households and those without landlines. Therefore, certain demographics are less likely to be sampled like younger homeowners and lower income households respectively. The survey also overrepresented elderly citizens that are in retirement age due to the nature of having more spare time than a working individual and more willing to answer a 45 minute interview.  Conducting the survey via telephone also lowered response rates compared to a face-to-face interview and limited the questions that could be asked. 
+
+Figure Data (Subsection specific for doc, dont include subsection title in report)
+
+```{r Age Groups, echo=FALSE}
+
+gss %>% 
+  mutate(is_male = ifelse(sex=="Male", 0, 1))
+
+#Plot demonstrating the skew in the average age of respondents
+hist(gss$age, 
+      main="Figure 1. Frequency of Canadian GSS Respondent Ages", 
+      xlab="Age of Respondents", 
+      border="white", 
+      col="cadetblue4",
+      cex.main=0.75)
+```
+
+  Figure 1 above demonstrates a right skew with the age distribution of respondents leaning to ages fifty-plus making up the majority. This can be explained due to the lower coverage of younger homeowners without landlines and overrepresentation of retirement aged individuals.
+
+```{r money_stats, echo=FALSE}
 gss %>% 
   mutate(is_male = ifelse(sex=="Male", 0, 1))
 
@@ -33,33 +60,30 @@ avg_hrs_worked_rank = fmatch(gss$average_hours_worked, c("NA", "Don't know", "0.
 income_family_rank = fmatch(gss$income_family, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
 
 income_respondent_rank = fmatch(gss$income_respondent, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
-```
 
-
-```{r cars}
-
-## Including Plots
-
-You can also embed plots, for example:
-```
-
-```{r}
 #Plot demonstrating the skew in the average age of respondents
-hist(gss$age, 
-      main="Frequency of Certain Age Groups Responding to the Canadian GSS", 
-      xlab="Age of Respondents", 
-      border="white", 
-      col="cadetblue4",
-      cex.main=0.75)
+
+gss %>%  
+ggplot(aes(x = Travel_Within_Canada)) +
+  geom_bar(colour ="black", fill="steelblue") +
+  labs(x = "Response",
+       y = "Frequency",
+       title = "Figure 3.5: 'Have you travelled within Canada within the past 6 months?'") +
+  theme(panel.background = element_rect(fill = "lightblue",
+                                colour = "lightblue",
+                                size = 0.5, linetype = "solid"))
 ```
 
-You can also embed plots, for example:
-```{r}
+  This figure showcasing the distribution of respondents' family income demonstrates non-coverage of lower income households lacking a landline. The median income of a family after taxes in Canada is $61 400 (Statistics Canada 2020), however our figure shows a significant portion of respondents reporting family incomes of over $125 000. 
+
+  This figure modeling the distribution of respondents' individual income demonstrates a left skew leaning towards a low individual income in contrast to figure (replace with figure number of respondents' family income). This can be explained due to the overrepresentation of elderly individuals in retirement age that cause lower income responses to make up the majority while maintaining a high family income.
+  
+```{r filter, echo=FALSE}
 gss2 <-gss
 gss2$sex<- ifelse(gss2$sex=="Male",1,0)
 ```
 
-```{r}
+```{r sdafjlka, echo=FALSE}
 #Filter men/women into separate tables
 
 fem <- filter(gss2, sex == 0)
@@ -67,7 +91,7 @@ men <- filter(gss2, sex == 1)
 
 ```
 
-```{r}
+```{r female_occupation, echo=FALSE}
 #Create Pie Chart of Female Occupations With Percentages
 focc_table<-table(fem$occupation)
 labels=c("Business and Finance", "Health", NA, "Management", "Sciences", "Resources/Agriculture", "Art, Culture, Recreation", "Social Work, Education, Law", "Manufacturing and Ultilities", "Sales or Service", "Trades, Transport", "Uncoded")
@@ -77,7 +101,7 @@ occu_lbl <- paste(occu_lbl,"%",sep="")
 pie(focc_table,labels = occu_lbl, col=rainbow(length(occu_lbl)), main="Careers Proportions of Female Respondents", radius = 1.0)
 
 ```
-```{r}
+```{r male_occupation, echo=FALSE}
 #Create Pie Chart of Male Occupations With Percentages
 mocc_table<-table(men$occupation)
 labels=c("Business and Finance", "Health", NA, "Management", "Sciences", "Resources/Agriculture", "Art, Culture, Recreation", "Social Work, Education, Law", "Manufacturing and Ultilities", "Sales or Service", "Trades, Transport", "Uncoded")
@@ -88,6 +112,27 @@ pie(mocc_table,labels = moccu_lbl, col=rainbow(length(moccu_lbl)), main="Careers
 
 ```
 
+
+## Model
+
+  A logistic model was used to model the data for our analysis of how sex affects one's socioeconomic status. Logistic models are generally used when trying to model the associations found between various independent variables and binary categorical dependent variables. Mathematically this takes the form of  we can express the probability 'p' as a logarithmic function of the various dependent variables.
+
+equation for log(p/ 1-p) = beta0 + beta1x1 + beta2x2 .
+where p is the probability of the individual being male? idk
+
+  This model is appropriate for our analysis since sex is a categorical variable and we would like to see how given information regarding an individual's socioeconomic conditions, if there is any bias towards their predicted sex. Assuming that there is little to no gender inequality, we expect to find that sex and socioeconomic status are independent. However, if we find that some socioeconomic factors are linked to sex, then we can infer that there is some element of bias within society that skews towards that result.
+
+  For the purposes of our model, we chose several dependent variables such as income, educational attainment, and occupation that have historically been segregated strongly by sex. This data is categorical as a result of the survey methodology which was kept categorical for ease of aggregation. This unfortunately leads to some data points such as income (which would normally be quite continuous) as becoming categorical income ranges.
+
+We fit our model using the built-in functions of R.
+
+  Other potential models were considered for our analysis such as a Bayesian model as well as a classic linear model, but these were eliminated based on their weaknesses in appropriately modelling our data.
+
+  We eliminated linear models as a possibility as they require that our response variable (the individual's sex) and the independent variables (varying socioeconomic factors) are linearly related. This also requires that the response variable be non-categorical which is clearly not the case for sex.
+
+  Bayesian models require that we have information about the approximate distribution of the data (which we refer to as a prior) for the model. They are also best used when the prior is informative in some way as to the distribution that models the data. However since there are no clear trends from the GSS we cannot assume anything more than a uniform probability distribution for the distributions which is a non-informative prior. Thus, we do not use a Bayesian model.
+
+## Discussion
 
 ```{r}
 #If these graphs don't relate to our report, it is okay not to include
