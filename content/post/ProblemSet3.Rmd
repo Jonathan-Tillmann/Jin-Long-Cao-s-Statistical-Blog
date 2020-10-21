@@ -36,10 +36,6 @@ gss <- read.csv("gss.csv")
 ## Data - Plots
 
 ```{r Age Groups, echo=FALSE}
-
-gss %>% 
-  mutate(is_male = ifelse(sex=="Male", 0, 1))
-
 #Plot demonstrating the skew in the average age of respondents
 hist(gss$age, 
       main="Figure 1. Frequency of Canadian GSS Respondent Ages", 
