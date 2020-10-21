@@ -64,7 +64,7 @@ income_respondent_rank = fmatch(gss$income_respondent, c("Less than $25,000", "$
 #Plot demonstrating the skew in the average age of respondents
 
 gss %>%  
-ggplot(aes(x = Travel_Within_Canada)) +
+ggplot(aes(x = average_hours_worked)) +
   geom_bar(colour ="black", fill="steelblue") +
   labs(x = "Response",
        y = "Frequency",
@@ -83,15 +83,14 @@ gss2 <-gss
 gss2$sex<- ifelse(gss2$sex=="Male",1,0)
 ```
 
-```{r sdafjlka, echo=FALSE}
+
+```{r female_occupation, echo=FALSE}
+
 #Filter men/women into separate tables
 
 fem <- filter(gss2, sex == 0)
 men <- filter(gss2, sex == 1)
 
-```
-
-```{r female_occupation, echo=FALSE}
 #Create Pie Chart of Female Occupations With Percentages
 focc_table<-table(fem$occupation)
 labels=c("Business and Finance", "Health", NA, "Management", "Sciences", "Resources/Agriculture", "Art, Culture, Recreation", "Social Work, Education, Law", "Manufacturing and Ultilities", "Sales or Service", "Trades, Transport", "Uncoded")
