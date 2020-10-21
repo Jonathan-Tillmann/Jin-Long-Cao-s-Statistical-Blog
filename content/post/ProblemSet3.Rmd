@@ -52,9 +52,6 @@ hist(gss$age,
   Figure 1 above demonstrates a right skew with the age distribution of respondents leaning to ages fifty-plus making up the majority. This can be explained due to the lower coverage of younger homeowners without landlines and overrepresentation of retirement aged individuals.
 
 ```{r money_stats, echo=FALSE}
-gss %>% 
-  mutate(is_male = ifelse(sex=="Male", 0, 1))
-
 avg_hrs_worked_rank = fmatch(gss$average_hours_worked, c("NA", "Don't know", "0.1 to 29.9 hours", "30.0 to 40.0 hours", "40.1 to 50.0 hours", "50.1 hours and more"))
 
 income_family_rank = fmatch(gss$income_family, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
@@ -132,7 +129,7 @@ We fit our model using the built-in functions of R.
 
   Bayesian models require that we have information about the approximate distribution of the data (which we refer to as a prior) for the model. They are also best used when the prior is informative in some way as to the distribution that models the data. However since there are no clear trends from the GSS we cannot assume anything more than a uniform probability distribution for the distributions which is a non-informative prior. Thus, we do not use a Bayesian model.
 ```{r}
-mod<-glm(gss$sex~income_respondent_rank+avg_hours_worked_rank+gss$occupation+gss$education, family="binomial", na.action=na.omit)
+mod<-glm(gss$sex~income_respondent_rank+avg_hrs_worked_rank+gss$occupation+gss$education, family="binomial", na.action=na.omit)
 summary(mod)
 plot(mod)
 ```
@@ -237,6 +234,32 @@ detach(gss)
 
 
 
+```{r}
+gss %>% 
+  ggplot(aes(fill=sex, x=income_respondent)) +
+  geom_bar()+
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
+  labs(x="Respondent's Income",
+       y="Frequency",
+       title="Respondent's Income")
+
+gss %>% 
+  ggplot(aes(fill=sex, x=marital_status)) +
+  geom_bar()+
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
+  labs(x="Respondent's marital status",
+       y="Frequency",
+       title="Respondent's marital status")
+
+gss %>% 
+  ggplot(aes(fill=sex, x=average_hours_worked)) +
+  geom_bar()+
+  theme(axis.text.x=element_text(angle=90),panel.background = element_rect(fill = "lightblue", colour = "lightblue", size = 0.5, linetype = "solid")) +
+  labs(x="Respondent's average hours worked",
+       y="Frequency",
+       title="Respondent's average hours worked")
+
+```
 
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
