@@ -44,6 +44,8 @@ hist(gss$age,
   Figure 1 above demonstrates a right skew with the age distribution of respondents leaning to ages fifty-plus making up the majority. This can be explained due to the lower coverage of younger homeowners without landlines and overrepresentation of retirement aged individuals.
 
 ```{r money_stats, echo=FALSE}
+
+#Rank data for logistic regression
 avg_hrs_worked_rank = fmatch(gss$average_hours_worked, c("NA", "Don't know", "0.1 to 29.9 hours", "30.0 to 40.0 hours", "40.1 to 50.0 hours", "50.1 hours and more"))
 
 income_family_rank = fmatch(gss$income_family, c("Less than $25,000", "$25,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $ 124,999", "$125,000 and more"))
@@ -56,6 +58,8 @@ income_respondent_rank = fmatch(gss$income_respondent, c("Less than $25,000", "$
   This figure modeling the distribution of respondents' individual income demonstrates a left skew leaning towards a low individual income in contrast to figure (replace with figure number of respondents' family income). This can be explained due to the overrepresentation of elderly individuals in retirement age that cause lower income responses to make up the majority while maintaining a high family income.
   
 ```{r filter, echo=FALSE}
+
+# clean gss variables by sex
 gss2 <-gss
 gss2$sex<- ifelse(gss2$sex=="Male",1,0)
 ```
@@ -93,6 +97,8 @@ In figures Figure 2.1 and 2.2, we can see the occupation demographics for male a
 
 
 ```{r, echo=FALSE}
+
+#Plot income
 gss %>% 
   ggplot(aes(fill=sex, x=income_family)) +
   geom_bar(color = "black")+
@@ -101,6 +107,7 @@ gss %>%
        y="Frequency",
        title="Figure 3.1: Family's Income")
 
+#Plot average hours worked
 gss %>% 
   ggplot(aes(fill=sex, x=average_hours_worked)) +
   geom_bar(color = "black")+
@@ -109,6 +116,7 @@ gss %>%
        y="Frequency",
        title="Figure 3.2: Respondent's Average Hours Worked")
 
+#Plot income of respondents
 gss %>% 
   ggplot(aes(fill=sex, x=income_respondent)) +
   geom_bar(color = "black")+
